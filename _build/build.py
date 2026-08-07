@@ -12,8 +12,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 from structure import SITE, SECTIONS, REDIRECTS  # noqa: E402
+from extra_content import EXTRA  # noqa: E402
 
 CONTENT = json.load(open(os.path.join(HERE, "content.json"), encoding="utf-8"))
+# Κείμενα που δόθηκαν από τον ιατρό και δεν προέρχονται από το WordPress scrape.
+CONTENT.update(EXTRA)
 TODAY = datetime.date.today().isoformat()
 
 # ---------------------------------------------------------------- helpers
@@ -142,13 +145,15 @@ def excerpt(slug, fallback):
 # ---------------------------------------------------------------- page index
 
 class Page:
-    def __init__(self, path, title, nav_title, section, parent=None):
+    def __init__(self, path, title, nav_title, section, parent=None, hidden=False):
         self.path = path              # e.g. "maieftiki/didymi-kyisi.html"
         self.title = title
         self.nav_title = nav_title
         self.section = section
         self.parent = parent
         self.children = []
+        # hidden: χτίζεται και είναι προσβάσιμη, αλλά δεν μπαίνει στο mega-menu.
+        self.hidden = hidden
 
 
 ALL = {}       # path -> Page
@@ -163,15 +168,16 @@ def build_index():
         ALL[hub.path] = hub
         SECT_PAGES[d] = []
 
-        def add(items, parent):
+        def add(items, parent, hidden=False):
             for src, lat, title, kids in items:
-                p = Page(f"{d}/{lat}.html", title, title, sec, parent)
+                p = Page(f"{d}/{lat}.html", title, title, sec, parent, hidden)
                 p.src = src
                 ALL[p.path] = p
                 parent.children.append(p)
-                add(kids, p)
+                add(kids, p, hidden)
 
         add(sec["pages"], hub)
+        add(sec.get("extra", []), hub, hidden=True)
         SECT_PAGES[d] = hub.children
 
 
@@ -196,15 +202,25 @@ def nav_html(cur):
         d = sec["dir"]
         hub = ALL[f"{d}/index.html"]
         active = cur.startswith(d + "/")
-        subs = []
-        for c in hub.children:
-            subs.append(f'<li><a href="{rel(cur, c.path)}">{esc(c.nav_title)}</a></li>')
-            if c.children:
-                nested = "".join(
-                    f'<li><a href="{rel(cur, g.path)}">{esc(g.nav_title)}</a></li>'
-                    for g in c.children
-                )
-                subs.append(f'<li><ul class="sub-nested">{nested}</ul></li>')
+
+        # Επίπεδο 0 = απευθείας παιδιά της ενότητας, 1 = .sub-nested,
+        # 2 = .sub-nested-2. Σε «grouped» ενότητες το επίπεδο 0 γίνεται
+        # τίτλος ομάδας (τα τρία μεγάλα sub-dropbars).
+        def branch(nodes, depth):
+            out = []
+            for c in nodes:
+                if c.hidden:
+                    continue
+                cls = ' class="sub-group"' if depth == 0 and sec.get("grouped") else ""
+                out.append(f'<li><a href="{rel(cur, c.path)}"{cls}>'
+                           f"{esc(c.nav_title)}</a></li>")
+                inner = branch(c.children, depth + 1)
+                if inner:
+                    klass = "sub-nested" if depth == 0 else "sub-nested-2"
+                    out.append(f'<li><ul class="{klass}">{"".join(inner)}</ul></li>')
+            return out
+
+        subs = branch(hub.children, 0)
         items.append(
             f'<li class="has-sub"><a href="{rel(cur, hub.path)}"'
             + (' aria-current="true"' if active else "")
@@ -388,7 +404,9 @@ def shell(path, title, desc, body, extra_ld=None, keywords=None):
 def write(path, content):
     full = os.path.join(ROOT, path)
     os.makedirs(os.path.dirname(full), exist_ok=True)
-    with open(full, "w", encoding="utf-8") as f:
+    # newline="\n": το repo κρατά LF — χωρίς αυτό τα Windows builds ξαναγράφουν
+    # κάθε αρχείο με CRLF και ο κάθε build βγάζει diff σε ολόκληρο το site.
+    with open(full, "w", encoding="utf-8", newline="\n") as f:
         f.write(content)
 
 
@@ -495,9 +513,12 @@ IATREIO_SERVICES = [
 def render_home():
     cur = "index.html"
     svc_cards = []
+    def count(nodes):
+        return sum(1 + count(c.children) for c in nodes)
+
     for i, sec in enumerate(SECTIONS, 1):
         hub = ALL[sec["dir"] + "/index.html"]
-        n = len(hub.children) + sum(len(c.children) for c in hub.children)
+        n = count(hub.children)
         svc_cards.append(f"""        <a class="svc reveal" href="{rel(cur, hub.path)}">
           <span class="svc-icon" aria-hidden="true">{sec['icon']}</span>
           <span class="svc-num">{i:02d}</span>
@@ -668,7 +689,7 @@ def aside_html(cur, page):
     elif page.parent and page.parent is not hub:
         head, group = page.parent.title, [page.parent] + page.parent.children
     else:
-        head, group = sec["title"], hub.children
+        head, group = sec["title"], [k for k in hub.children if not k.hidden]
 
     links = "".join(
         f'<a href="{rel(cur, p.path)}"'
@@ -720,7 +741,7 @@ def render_hub(sec):
     hub = ALL[sec["dir"] + "/index.html"]
     cur = hub.path
     cards = []
-    for i, c in enumerate(hub.children, 1):
+    for i, c in enumerate([k for k in hub.children if not k.hidden], 1):
         sub = ""
         if c.children:
             sub = " · ".join(g.nav_title for g in c.children)
@@ -733,6 +754,29 @@ def render_hub(sec):
           <p>{esc(teaser)}</p>
           <span class="svc-more">{sub_label(len(c.children))} →</span>
         </a>""")
+
+    # Σελίδες εκτός μενού — παραμένουν προσβάσιμες από τη σελίδα ενότητας.
+    hidden_kids = [k for k in hub.children if k.hidden]
+    if hidden_kids:
+        extra_cards = "".join(f"""        <a class="svc reveal" href="{rel(cur, k.path)}">
+          <h3>{esc(k.nav_title)}</h3>
+          <p>{esc(excerpt(k.src, 'Διαβάστε περισσότερα.'))}</p>
+          <span class="svc-more">Μάθετε περισσότερα →</span>
+        </a>""" for k in hidden_kids)
+        extra_section = f"""
+    <section class="services services--hub">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">{esc(sec['title'])}</p>
+          <h2 class="section-title">{esc(sec.get('extra_title', 'Περισσότερα θέματα'))}</h2>
+        </div>
+        <div class="services-grid">
+{extra_cards}
+        </div>
+      </div>
+    </section>"""
+    else:
+        extra_section = ""
 
     crumb_html, crumb_ld = crumbs(cur, [(sec["title"], cur)])
     body, _ = render_body(sec.get("src"), sec["title"])
@@ -798,6 +842,7 @@ def render_hub(sec):
         </div>
       </div>
     </section>
+{extra_section}
   </main>"""
 
     title = f"{sec['title']} | {SITE['full']} — Γυναικολόγος Αθήνα"
@@ -1055,10 +1100,10 @@ def strip_dashes():
             if not f.endswith(".html"):
                 continue
             p = os.path.join(root, f)
-            s = open(p, encoding="utf-8").read()
+            s = open(p, encoding="utf-8", newline="").read()
             out = DASH_LEADING.sub(">", DASH_SPACED.sub(" ", s))
             if out != s:
-                open(p, "w", encoding="utf-8").write(out)
+                open(p, "w", encoding="utf-8", newline="").write(out)
 
 
 # ---------------------------------------------------------------- sitemap

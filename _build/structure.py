@@ -89,6 +89,8 @@ SECTIONS = [
             ("προγεννητικός-έλεγχος-hub", "progennitikos-elegxos", "Προγεννητικός έλεγχος", [
                 ("τεστ-ρουτίνας-στην-εγκυμοσύνη", "genikes-exetaseis", "Γενικές εξετάσεις", []),
                 ("κυστική-ίνωση", "kystiki-inosi", "Κυστική Ίνωση", []),
+                # Μεταφέρθηκε από την Εμβρυομητρική κατόπιν αιτήματος του ιατρού.
+                ("γενετικές-διαταραχές", "genetikes-diataraxes", "Γενετικές διαταραχές", []),
                 ("ο-παράγοντας-rhesus", "paragontas-rhesus", "Ο παράγοντας Rhesus", []),
                 ("στρεπτόκοκκος-ομάδας-β-στην-εγκυμοσύ", "streptokokkos-omadas-b", "Στρεπτόκοκκος ομάδας Β", []),
                 ("θρομβοφιλίες-στην-κύηση", "thrombofilies-kyisis", "Θρομβοφιλίες", []),
@@ -100,6 +102,8 @@ SECTIONS = [
             ]),
             ("παθολογία-της-κύησης", "pathologia-tis-kyisis", "Παθολογία της κύησης", [
                 ("αιμορραγία-κατά-τη-διάρκεια-της-εγκυμ", "aimorragia-stin-egkymosyni", "Αιμορραγία κατά τη διάρκεια της κύησης", []),
+                # Μεταφέρθηκε από την Υπογονιμότητα κατόπιν αιτήματος του ιατρού.
+                ("επαναλαμβανόμενες-αποβολές", "epanalambanomenes-apovoles", "Επαναλαμβανόμενες αποβολές", []),
                 ("έκτοπη-κύηση", "ektopi-kyisi", "Έκτοπη κύηση", []),
                 ("διαβήτης-κύησης", "diavitis-kyisis", "Διαβήτης κύησης", []),
                 ("υψηλή-αρτηριακή-πίεση-στην-εγκυμοσύνη", "proeklampsia", "Προεκλαμψία", []),
@@ -134,7 +138,6 @@ SECTIONS = [
             ("αμνιοπαρακέντηση", "amnioparakentisi", "Αμνιοπαρακέντηση", []),
             ("μη-επεμβατικός-προγεννητικός-έλεγχο", "nipt", "Μη επεμβατικός προγεννητικός έλεγχος (NIPT)", []),
             ("ειδικές-εξετάσεις-υγείας-εμβρύου", "exetaseis-ygeias-embryou", "Ειδικές εξετάσεις παρακολούθησης του εμβρύου", []),
-            ("γενετικές-διαταραχές", "genetikes-diataraxes", "Γενετικές διαταραχές", []),
         ],
     },
     {
@@ -164,7 +167,7 @@ SECTIONS = [
                 ("ιός-hpv", "ios-hpv", "Ιός HPV", []),
                 ("πολυκυστικές-ωοθήκες-2", "polykystikes-oothikes", "Πολυκυστικές ωοθήκες", []),
                 ("δυσμηνόρροια-page", "dysminorroia", "Δυσμηνόρροια", []),
-                ("μη-φυσιολογική-αιμορραγία-μήτρας", "mi-fysiologiki-aimorragia-mitras", "Μη φυσιολογική αιμορραγία της μήτρας", []),
+                ("μη-φυσιολογική-αιμορραγία-μήτρας", "mi-fysiologiki-aimorragia-mitras", "Μητρορραγία (μη φυσιολογική αιμορραγία μήτρας)", []),
                 ("θρομβοφιλίες-page", "thromvofilies", "Θρομβοφιλίες", []),
                 ("κλιμακτήριος-εμμηνόπαυση-page", "klimaktirios-emminopafsi", "Κλιμακτήριος – Εμμηνόπαυση", []),
                 ("καλλιέργεια-κολπικού-υγρού-page", "kalliergeia-kolpikou-ygrou", "Καλλιέργεια κολπικού υγρού", []),
@@ -188,6 +191,8 @@ SECTIONS = [
                 "λαπαροσκόπηση — με βράβευση από την Αμερικανική Ένωση Γυναικολογικής "
                 "Λαπαροσκόπησης (AAGL).",
         "pages": [
+            # Μόνη της, πάνω από όλες τις υποκατηγορίες (αίτημα ιατρού).
+            ("προετοιμασία-για-χειρουργική-επέμβαση", "proetoimasia-xeirourgeiou", "Προετοιμασία για χειρουργική επέμβαση", []),
             ("υστεροσκόπηση", "ysteroskopisi", "Υστεροσκόπηση", [
                 ("υστεροσκοπική-αφαίρεση-πολύποδα-2", "ysteroskopiki-afairesi-polypoda", "Υστεροσκοπική αφαίρεση πολύποδα", []),
                 ("υστεροσκοπική-αφαίρεση-ινομυώματος", "ysteroskopiki-afairesi-inomyomatos", "Υστεροσκοπική Αφαίρεση Ινομυώματος", []),
@@ -201,7 +206,6 @@ SECTIONS = [
             ]),
             ("υστερεκτομή", "ysterektomi", "Υστερεκτομή", []),
             ("κωνοειδής-εκτομή-τραχήλου", "konoeidis-ektomi-traxilou", "Κωνοειδής εκτομή τραχήλου", []),
-            ("προετοιμασία-για-χειρουργική-επέμβαση", "proetoimasia-xeirourgeiou", "Προετοιμασία για χειρουργική επέμβαση", []),
             ("ουρογυναικολογία-page", "ourogynaikologia", "Ουρογυναικολογία", [
                 ("τοποθέτηση-ταινίας-για-ακράτεια-ούρω", "tainia-akrateias-ouron", "Τοποθέτηση ταινίας για ακράτεια ούρων", []),
             ]),
@@ -214,22 +218,54 @@ SECTIONS = [
         "eyebrow": "Υπηρεσίες",
         "icon": "✦",
         "src": "υπογονιμότητα",
-        "lead": "Διερεύνηση και αντιμετώπιση της υπογονιμότητας — από τη συμβουλευτική "
-                "γονιμότητας και τη διατήρηση γονιμότητας έως τις θεραπείες εξωσωματικής "
-                "γονιμοποίησης.",
+        "lead": "Διερεύνηση και αντιμετώπιση της υπογονιμότητας σε τρεις ενότητες: ο πλήρης "
+                "έλεγχος της γυναίκας και του άνδρα, οι θεραπείες υποβοηθούμενης "
+                "αναπαραγωγής και οι νεότερες τεχνολογίες του εμβρυολογικού εργαστηρίου.",
+        # Τρία μεγάλα sub-dropbars, σύμφωνα με το κείμενο του ιατρού
+        # («rotas allages 3.txt», Αύγουστος 2026).
+        "grouped": True,
         "pages": [
+            # Ο ιατρός το ονομάζει σκέτο «Υπογονιμότητα»· επειδή έτσι θα
+            # επαναλαμβανόταν ο τίτλος της ενότητας (μενού + breadcrumbs),
+            # εμφανίζεται ως «Διερεύνηση Υπογονιμότητας».
+            ("new-diereynisi", "diereynisi", "Διερεύνηση Υπογονιμότητας", [
+                ("new-diereynisi-gynaikas", "diereynisi-gynaikas", "Διερεύνηση γυναίκας", [
+                    ("new-ormonikos-elegxos-gynaikas", "ormonikos-elegxos-gynaikas", "Ορμονικός έλεγχος γυναίκας", []),
+                    ("new-salpiggografia-hycosy", "salpiggografia-hycosy", "Σαλπιγγογραφία και HyCoSy", []),
+                    ("new-ypodektikotita-endomitriou", "ypodektikotita-endomitriou", "Έλεγχος υποδεκτικότητας ενδομητρίου", []),
+                    ("new-xronia-endomitritida", "xronia-endomitritida", "Έλεγχος για χρόνια ενδομητρίτιδα", []),
+                ]),
+                ("new-diereynisi-andra", "diereynisi-andra", "Διερεύνηση του άνδρα", [
+                    ("new-ormonikos-elegxos-andra", "ormonikos-elegxos-andra", "Ορμονικός έλεγχος άνδρα", []),
+                    ("new-spermodiagramma", "spermodiagramma", "Σπερμοδιάγραμμα", []),
+                    ("new-eidikes-exetaseis-spermatos", "eidikes-exetaseis-spermatos", "Ειδικές εξετάσεις στο σπέρμα", []),
+                ]),
+            ]),
+            ("new-therapeies-ypogonimotitas", "therapeies-ypogonimotitas", "Θεραπείες Υπογονιμότητας", [
+                ("new-proklisi-oothylakiorrixias", "proklisi-oothylakiorrixias", "Πρόκληση ωοθυλακιορρηξίας", []),
+                ("new-spermategxysi-iui", "spermategxysi-iui", "Ενδομήτρια σπερματέγχυση (IUI)", []),
+                ("new-exosomatiki-gonimopoiisi", "exosomatiki-gonimopoiisi", "Εξωσωματική γονιμοποίηση", []),
+                ("new-fysikos-kyklos", "fysikos-kyklos", "Εξωσωματική σε φυσικό κύκλο", []),
+                ("new-dorea-oarion", "dorea-oarion", "Εξωσωματική με δότρια ωαρίου", []),
+                ("new-doti-spermatos", "doti-spermatos", "Εξωσωματική με δότη σπέρματος", []),
+                ("new-katapsyxi-oarion", "katapsyxi-oarion", "Κατάψυξη ωαρίων", []),
+            ]),
+            ("new-neoteres-texnologies", "neoteres-texnologies", "Νεότερες τεχνολογίες στην υποβοηθούμενη αναπαραγωγή", [
+                ("new-time-lapse", "time-lapse", "Τεχνολογία Time-Lapse", []),
+                ("new-ypovoithoumeni-ekkolapsi", "ypovoithoumeni-ekkolapsi", "Υποβοηθούμενη εκκόλαψη", []),
+                ("new-proemfyteftikos-genetikos-elegxos", "proemfyteftikos-genetikos-elegxos", "Προεμφυτευτικός γενετικός έλεγχος (PGT)", []),
+            ]),
+        ],
+        # Σελίδες που παραμένουν ζωντανές (παλιά URLs / SEO) αλλά δεν μπαίνουν
+        # στα τρία sub-dropbars. Εμφανίζονται στο τέλος της σελίδας ενότητας.
+        "extra_title": "Περισσότερα θέματα υπογονιμότητας",
+        "extra": [
             ("συμβουλευτική-γονιμότητας-page", "symvouleftiki-gonimotitas", "Συμβουλευτική Γονιμότητας", []),
             ("αξιολόγηση-υπογονιμότητας", "axiologisi-ypogonimotitas", "Αξιολόγηση υπογονιμότητας", []),
-            ("επαναλαμβανόμενες-αποβολές", "epanalambanomenes-apovoles", "Επαναλαμβανόμενες αποβολές", []),
-            ("θεραπείες-εξωσωματικής-hub", "therapeies-exosomatikis", "Θεραπείες εξωσωματικής", [
-                ("φυσικός-κύκλος-page", "fysikos-kyklos", "Φυσικός Κύκλος", []),
-                ("mini-ivf-page", "mini-ivf", "Μικρο Εξωσωματική γονιμοποίηση (mini IVF)", []),
-            ]),
-            ("κατάψυξη-ωαρίων-page", "katapsyxi-oarion", "Κατάψυξη Ωαρίων", []),
-            ("δωρεά-ωαρίων-page", "dorea-oarion", "Δωρεά ωαρίων", []),
+            ("θεραπείες-εξωσωματικής-hub", "therapeies-exosomatikis", "Θεραπείες εξωσωματικής", []),
+            ("mini-ivf-page", "mini-ivf", "Μικρο Εξωσωματική γονιμοποίηση (mini IVF)", []),
             ("αναζωογόνηση-ωοθηκών-prp-page", "anazoogonisi-oothikon-prp", "Αναζωογόνηση ωοθηκών (PRP)", []),
             ("παρένθετη-μητρότητα-page", "parentheti-mitrotita", "Παρένθετη Μητρότητα", []),
-            ("προεμφυτευτικός-γενετικός-έλεγχος-page", "proemfyteftikos-genetikos-elegxos", "Προεμφυτευτικός γενετικός έλεγχος", []),
         ],
     },
 ]
@@ -241,4 +277,7 @@ SECTIONS = [
 REDIRECTS = {
     "maieftiki/proeklampsia-thrombofilia.html": "maieftiki/proeklampsia.html",
     "gynaikologia/isxiaki-provoli.html": "maieftiki/isxiaki-provoli.html",
+    # Σελίδες που άλλαξαν ενότητα (Αύγουστος 2026)
+    "ypogonimotita/epanalambanomenes-apovoles.html": "maieftiki/epanalambanomenes-apovoles.html",
+    "embryomitriki/genetikes-diataraxes.html": "maieftiki/genetikes-diataraxes.html",
 }

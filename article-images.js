@@ -81,7 +81,32 @@
     "ourogynaikologia":    { label: "Ουρογυναικολογία",    icon: "💧", color: "#1e5f8a" },
     "tainia-akrateias":    { label: "Ταινία Ακράτειας",    icon: "🩹", color: "#1e5f8a" },
 
-    // Ypogonimotita
+    // Ypogonimotita — 1. Διερεύνηση
+    // (τα πιο ειδικά keys πρώτα: ο έλεγχος είναι indexOf, κερδίζει το πρώτο)
+    "ormonikos-elegxos-gynaikas":{ label: "Ορμονικός Έλεγχος", icon: "🧪", color: "#5b4a9f" },
+    "ormonikos-elegxos-andra":{ label: "Ορμονικός Έλεγχος", icon: "🧪", color: "#5b4a9f" },
+    "salpiggografia-hycosy":{ label: "Σαλπιγγογραφία HyCoSy", icon: "📡", color: "#5b4a9f" },
+    "ypodektikotita-endomitriou":{ label: "Υποδεκτικότητα Ενδομητρίου", icon: "🔬", color: "#5b4a9f" },
+    "xronia-endomitritida":{ label: "Χρόνια Ενδομητρίτιδα", icon: "🦠", color: "#5b4a9f" },
+    "spermodiagramma":     { label: "Σπερμοδιάγραμμα",    icon: "🔬", color: "#5b4a9f" },
+    "eidikes-exetaseis-spermatos":{ label: "Ειδικές Εξετάσεις Σπέρματος", icon: "🧬", color: "#5b4a9f" },
+    "diereynisi-gynaikas": { label: "Διερεύνηση Γυναίκας", icon: "👩", color: "#5b4a9f" },
+    "diereynisi-andra":    { label: "Διερεύνηση Άνδρα",   icon: "👨", color: "#5b4a9f" },
+    "diereynisi":          { label: "Υπογονιμότητα",      icon: "🔍", color: "#5b4a9f" },
+
+    // Ypogonimotita — 2. Θεραπείες
+    "proklisi-oothylakiorrixias":{ label: "Πρόκληση Ωοθυλακιορρηξίας", icon: "💊", color: "#5b4a9f" },
+    "spermategxysi-iui":   { label: "Σπερματέγχυση (IUI)", icon: "🔬", color: "#5b4a9f" },
+    "exosomatiki-gonimopoiisi":{ label: "Εξωσωματική Γονιμοποίηση", icon: "🧬", color: "#5b4a9f" },
+    "doti-spermatos":      { label: "Δότης Σπέρματος",    icon: "🎁", color: "#5b4a9f" },
+    "therapeies-ypogonimotitas":{ label: "Θεραπείες Υπογονιμότητας", icon: "⚕️", color: "#5b4a9f" },
+
+    // Ypogonimotita — 3. Νεότερες τεχνολογίες
+    "time-lapse":          { label: "Τεχνολογία Time-Lapse", icon: "🎞️", color: "#5b4a9f" },
+    "ypovoithoumeni-ekkolapsi":{ label: "Υποβοηθούμενη Εκκόλαψη", icon: "✨", color: "#5b4a9f" },
+    "neoteres-texnologies":{ label: "Νεότερες Τεχνολογίες", icon: "⚗️", color: "#5b4a9f" },
+
+    // Ypogonimotita — λοιπά
     "symvouleftiki-gonimotitas":{ label: "Συμβουλευτική",  icon: "💬", color: "#5b4a9f" },
     "axiologisi-ypogonimotitas":{ label: "Αξιολόγηση",         icon: "🔍", color: "#5b4a9f" },
     "epanalambanomenes-apovoles":{ label: "Επαναλ. Αποβολές",  icon: "💜", color: "#5b4a9f" },
