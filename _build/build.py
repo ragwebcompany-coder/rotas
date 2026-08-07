@@ -11,7 +11,7 @@ import json, os, re, html, sys, datetime, shutil, unicodedata
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
-from structure import SITE, SECTIONS  # noqa: E402
+from structure import SITE, SECTIONS, REDIRECTS  # noqa: E402
 
 CONTENT = json.load(open(os.path.join(HERE, "content.json"), encoding="utf-8"))
 TODAY = datetime.date.today().isoformat()
@@ -345,7 +345,7 @@ def shell(path, title, desc, body, extra_ld=None, keywords=None):
   <meta name="description" content="{attr(desc)}" />{kw}
   <meta name="author" content="{attr(SITE['full'])}" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="theme-color" content="#f9edf7" />
+  <meta name="theme-color" content="#eef2f8" />
   <link rel="canonical" href="{canon}" />
 
   <meta property="og:site_name" content="{attr(SITE['full'])}" />
@@ -359,9 +359,6 @@ def shell(path, title, desc, body, extra_ld=None, keywords=None):
 
   <link rel="icon" type="image/png" href="{rel(path, 'assets/logo.png')}" />
   <link rel="apple-touch-icon" href="{rel(path, 'assets/logo.png')}" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{rel(path, 'styles.css')}" />{ld}
 </head>
 <body>
@@ -380,6 +377,8 @@ def shell(path, title, desc, body, extra_ld=None, keywords=None):
 {body}
 {cta_html(path)}
 {footer_html(path)}
+  <script src="{rel(path, 'i18n.js')}" defer></script>
+  <script src="{rel(path, 'article-images.js')}" defer></script>
   <script src="{rel(path, 'main.js')}" defer></script>
 </body>
 </html>
@@ -1013,6 +1012,55 @@ def render_contact():
                      desc, page_body, extra_ld=crumb_ld))
 
 
+# ---------------------------------------------------------------- redirects
+
+def render_redirects():
+    """Meta-refresh stubs for pages that moved, so old links keep working."""
+    for old, new in REDIRECTS.items():
+        target = rel(old, new)
+        canon = SITE["domain"] + "/" + new
+        write(old, f"""<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Η σελίδα μεταφέρθηκε | {esc(SITE['full'])}</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta http-equiv="refresh" content="0; url={target}" />
+  <link rel="canonical" href="{canon}" />
+</head>
+<body>
+  <p>Η σελίδα μεταφέρθηκε. Αν δεν μεταφερθείτε αυτόματα,
+    <a href="{target}">πατήστε εδώ</a>.</p>
+  <script>window.location.replace({json.dumps(target)});</script>
+</body>
+</html>
+""")
+
+
+# ---------------------------------------------------------------- post-process
+
+# The site drops the " – " / " — " dash connectors the WordPress copy used.
+DASH_SPACED = re.compile(r" ([-–—]+) ")
+DASH_LEADING = re.compile(r">\s*[-–—]\s+")
+
+
+def strip_dashes():
+    for root, dirs, files in os.walk(ROOT):
+        # _build holds sources; en/ is hand-authored and not generated here.
+        top = os.path.relpath(root, ROOT).split(os.sep)[0]
+        if top in ("_build", "en", ".git"):
+            continue
+        for f in files:
+            if not f.endswith(".html"):
+                continue
+            p = os.path.join(root, f)
+            s = open(p, encoding="utf-8").read()
+            out = DASH_LEADING.sub(">", DASH_SPACED.sub(" ", s))
+            if out != s:
+                open(p, "w", encoding="utf-8").write(out)
+
+
 # ---------------------------------------------------------------- sitemap
 
 def render_meta():
@@ -1049,8 +1097,11 @@ def main():
         else:
             render_detail(page)
         n += 1
+    render_redirects()
     render_meta()
-    print(f"✓ {n} detail pages + {len(SECTIONS)} hubs + home + contact")
+    strip_dashes()
+    print(f"✓ {n} detail pages + {len(SECTIONS)} hubs + home + contact "
+          f"+ {len(REDIRECTS)} redirects")
 
 
 if __name__ == "__main__":

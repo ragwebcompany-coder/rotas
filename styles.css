@@ -1,26 +1,26 @@
 /* ============================================================
    Δρ. Μιχάλης Ρώτας — Μαιευτήρας · Χειρουργός Γυναικολόγος
-   Palette: Soft grey + teal / petrol accents
+   Palette: Blue-grey + azure / navy accents
    Font: Inter throughout
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Palette — cool grey + teal axis */
-  --cream:      #f8f9fa;   /* page background            */
-  --sand:       #f0f2f4;   /* alternating section bg     */
-  --beige:      #e4e8ec;
-  --blush:      #d6e5e8;   /* teal wash / highlights     */
-  --rose:       #2a8f96;   /* ← primary teal accent      */
-  --rose-ink:   #1e7078;   /* small text on light bg     */
-  --rose-soft:  #7ec4c9;
-  --taupe:      #6b7d82;
-  --mocha:      #4a6a70;   /* eyebrows / meta text       */
-  --cocoa:      #2c3e44;   /* headings, footer bg        */
-  --ink:        #2d3436;   /* body text                  */
-  --ink-soft:   #5a6567;   /* secondary text             */
-  --line:       #dce2e5;   /* hairlines / borders        */
+  /* Palette — blue-grey neutrals + azure accent axis */
+  --cream:      #f7f9fc;   /* page background            */
+  --sand:       #eef2f8;   /* alternating section bg     */
+  --beige:      #e1e8f2;
+  --blush:      #dbe7f5;   /* blue wash / highlights     */
+  --rose:       #2166b0;   /* ← primary azure accent     */
+  --rose-ink:   #17497f;   /* small text on light bg     */
+  --rose-soft:  #7fa9d8;
+  --taupe:      #6d7c91;
+  --mocha:      #4a5c75;   /* eyebrows / meta text       */
+  --cocoa:      #22354f;   /* headings, footer bg        */
+  --ink:        #2a3644;   /* body text                  */
+  --ink-soft:   #58657a;   /* secondary text             */
+  --line:       #d8e0ea;   /* hairlines / borders        */
   --white:      #ffffff;
 
   /* Type — Inter everywhere */
@@ -105,14 +105,14 @@ a { color: inherit; text-decoration: none; }
               color .35s var(--ease), border-color .35s var(--ease), box-shadow .4s var(--ease);
 }
 .btn-primary {
-  background: linear-gradient(135deg, #2a8f96 0%, #1e7078 100%);
+  background: linear-gradient(135deg, #2166b0 0%, #17497f 100%);
   color: #fff;
-  box-shadow: 0 14px 32px -14px rgba(42, 143, 150, 0.55);
+  box-shadow: 0 14px 32px -14px rgba(33, 102, 176, 0.55);
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, #33a1a9 0%, #1a6068 100%);
+  background: linear-gradient(135deg, #2b7bcc 0%, #143f6e 100%);
   transform: translateY(-3px);
-  box-shadow: 0 20px 40px -14px rgba(42, 143, 150, 0.65);
+  box-shadow: 0 20px 40px -14px rgba(33, 102, 176, 0.65);
 }
 .btn-ghost {
   background: transparent;
@@ -131,9 +131,9 @@ a { color: inherit; text-decoration: none; }
   transition: background .4s var(--ease), box-shadow .4s var(--ease), backdrop-filter .4s var(--ease);
 }
 .site-header.scrolled {
-  background: rgba(248, 249, 250, 0.92);
+  background: rgba(247, 249, 252, 0.92);
   backdrop-filter: blur(14px);
-  box-shadow: 0 1px 0 var(--line), 0 14px 40px -30px rgba(44, 62, 68, 0.35);
+  box-shadow: 0 1px 0 var(--line), 0 14px 40px -30px rgba(34, 53, 79, 0.35);
 }
 .nav {
   display: flex;
@@ -187,14 +187,14 @@ a { color: inherit; text-decoration: none; }
 .nav-links > li > a:not(.btn):hover { color: var(--rose); }
 .nav-links > li > a:not(.btn):hover::after { transform: scaleX(1); transform-origin: left; }
 .btn-nav {
-  background: linear-gradient(135deg, #2a8f96 0%, #1e7078 100%);
+  background: linear-gradient(135deg, #2166b0 0%, #17497f 100%);
   color: #fff !important;
   padding: 0.7rem 1.4rem;
   border-radius: 100px;
-  box-shadow: 0 10px 24px -12px rgba(42, 143, 150, 0.6);
+  box-shadow: 0 10px 24px -12px rgba(33, 102, 176, 0.6);
 }
 .btn-nav::after { display: none !important; }
-.btn-nav:hover { background: linear-gradient(135deg, #33a1a9 0%, #1a6068 100%); }
+.btn-nav:hover { background: linear-gradient(135deg, #2b7bcc 0%, #143f6e 100%); }
 
 .nav-toggle {
   display: none;
@@ -236,7 +236,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 14px;
-  box-shadow: 0 24px 50px -24px rgba(44, 62, 68, 0.35);
+  box-shadow: 0 24px 50px -24px rgba(34, 53, 79, 0.35);
   opacity: 0;
   visibility: hidden;
   transition: opacity .3s var(--ease), transform .3s var(--ease);
@@ -302,7 +302,7 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(-50%);
   width: min(58vw, 640px);
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(42,143,150,0.12), transparent 65%);
+  background: radial-gradient(circle, rgba(33,102,176,0.12), transparent 65%);
   filter: blur(10px);
   pointer-events: none;
 }
@@ -399,7 +399,7 @@ a { color: inherit; text-decoration: none; }
   object-position: 50% 22%;
   border-radius: var(--radius);
   background: var(--beige);
-  box-shadow: 0 40px 80px -40px rgba(44, 62, 68, 0.35);
+  box-shadow: 0 40px 80px -40px rgba(34, 53, 79, 0.35);
 }
 .about-media::after {
   content: "";
@@ -420,7 +420,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  box-shadow: 0 20px 44px -24px rgba(44, 62, 68, 0.4);
+  box-shadow: 0 20px 44px -24px rgba(34, 53, 79, 0.4);
 }
 .about-badge-num {
   font-family: var(--sans);
@@ -492,7 +492,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--sand);
   border-color: var(--rose);
   transform: translateY(-4px);
-  box-shadow: 0 26px 50px -26px rgba(42, 143, 150, 0.30);
+  box-shadow: 0 26px 50px -26px rgba(33, 102, 176, 0.30);
 }
 .svc-num {
   font-family: var(--sans);
@@ -704,7 +704,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   color: inherit;
   transition: transform .4s var(--ease), box-shadow .4s var(--ease);
 }
-.clinic-card:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -34px rgba(44, 62, 68, 0.3); }
+.clinic-card:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -34px rgba(34, 53, 79, 0.3); }
 .clinic-card img { width: 100%; height: 230px; object-fit: cover; }
 .clinic-body { padding: 1.7rem; }
 .clinic-card h3 {
@@ -1030,7 +1030,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--line);
-  box-shadow: 0 40px 80px -44px rgba(44, 62, 68, 0.30);
+  box-shadow: 0 40px 80px -44px rgba(34, 53, 79, 0.30);
   min-height: 360px;
 }
 .contact-map iframe { width: 100%; height: 100%; min-height: 360px; border: 0; filter: grayscale(0.15) saturate(0.9); }
@@ -1051,7 +1051,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 2.5rem;
   padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(214, 229, 232, 0.2);
+  border-bottom: 1px solid rgba(219, 231, 245, 0.2);
 }
 .footer-logo {
   height: 60px;
@@ -1088,7 +1088,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   font-size: 0.8rem;
   color: var(--sand);
   opacity: 0.8;
-  border-bottom: 1px solid rgba(214, 229, 232, 0.32);
+  border-bottom: 1px solid rgba(219, 231, 245, 0.32);
   transition: opacity .3s var(--ease), color .3s var(--ease);
 }
 .footer-social a:hover { opacity: 1; color: var(--blush); }
@@ -1163,7 +1163,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
     gap: 0.6rem;
     padding: 6rem 1.8rem 3rem;
     background: var(--white);
-    box-shadow: -20px 0 60px -30px rgba(44, 62, 68, 0.4);
+    box-shadow: -20px 0 60px -30px rgba(34, 53, 79, 0.4);
     transform: translateX(100%);
     transition: transform .45s var(--ease);
     overflow-y: auto;
@@ -1235,7 +1235,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 .lang-btn:hover {
   border-color: var(--rose);
   color: var(--rose);
-  background: rgba(42, 143, 150, 0.06);
+  background: rgba(33, 102, 176, 0.06);
 }
 .lang-flag {
   font-weight: 700;
