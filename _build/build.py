@@ -11,7 +11,7 @@ import json, os, re, html, sys, datetime, shutil, unicodedata
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
-from structure import SITE, SECTIONS, REDIRECTS  # noqa: E402
+from structure import SITE, SECTIONS, REDIRECTS, PARTNERS  # noqa: E402
 from extra_content import EXTRA  # noqa: E402
 
 CONTENT = json.load(open(os.path.join(HERE, "content.json"), encoding="utf-8"))
@@ -547,14 +547,30 @@ def render_home():
         for k, v in CREDS
     )
     a, b = SITE["clinics"]
-    clinic_cards = "".join(f"""        <a class="clinic-card reveal" href="{rel(cur, 'iatros/iatreio-' + ('athinon' if c['id'] == 'athina' else 'neas-smyrnis') + '.html')}">
-          <img src="{rel(cur, 'assets/clinic-' + ('1' if c['id'] == 'athina' else '5') + '.jpg')}" alt="{attr(c['name'])}" width="632" height="412" loading="lazy" />
-          <div class="clinic-body">
-            <h3>{esc(c['name'])}</h3>
-            <p>{esc(c['brand'])}<br />{esc(c['addr'])}, {esc(c['city'])}</p>
-            <span class="svc-more">Δείτε τον χώρο →</span>
+    # Κάρτα χώρου + χάρτης + ενέργειες, σε μία στήλη ανά ιατρείο. Ο χάρτης
+    # ανήκει εδώ: ξεχωριστή ενότητα «πού θα μας βρείτε» επαναλάμβανε τα ίδια
+    # δύο ιατρεία αμέσως από κάτω.
+    clinic_cards = "".join(f"""        <div class="clinic-col reveal">
+          <a class="clinic-card" href="{rel(cur, 'iatros/iatreio-' + ('athinon' if c['id'] == 'athina' else 'neas-smyrnis') + '.html')}">
+            <img src="{rel(cur, 'assets/clinic-' + ('1' if c['id'] == 'athina' else '5') + '.jpg')}" alt="{attr(c['name'])}" width="632" height="412" loading="lazy" />
+            <div class="clinic-body">
+              <h3>{esc(c['name'])}</h3>
+              <p>{esc(c['brand'])}<br />{esc(c['addr'])}, {esc(c['city'])}</p>
+              <span class="svc-more">Δείτε τον χώρο →</span>
+            </div>
+          </a>
+          <div class="contact-map">
+            <iframe title="Χάρτης — {attr(c['name'])}" src="{c['embed']}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-        </a>""" for c in (a, b))
+          <div class="clinic-actions">
+            <a href="tel:+30{c['tel']}" class="btn btn-primary">Καλέστε {c['tel_fmt']}</a>
+            <a href="{c['map']}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Οδηγίες</a>
+          </div>
+        </div>""" for c in (a, b))
+
+    partner_logos = "".join(f"""          <a class="partner" href="{u}" target="_blank" rel="noopener noreferrer" title="{attr(n)}">
+            <img src="{rel(cur, 'assets/partners/' + img)}" alt="{attr(n)}" width="246" height="116" loading="lazy" />
+          </a>""" for img, n, u in PARTNERS)
 
     strip_items = ["Εμβρυομητρική Ιατρική", "Κύηση Υψηλού Κινδύνου", "Ελάχιστα Επεμβατική Χειρουργική",
                    "Υπογονιμότητα", "Προγεννητικός Έλεγχος"]
@@ -660,6 +676,18 @@ def render_home():
         </div>
         <div class="clinics-grid">
 {clinic_cards}
+        </div>
+      </div>
+    </section>
+
+    <section class="partners">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Συνεργασίες</p>
+          <h2 class="section-title">Συνεργαζόμενα Νοσοκομεία &amp; Ιδρύματα</h2>
+        </div>
+        <div class="partners-grid reveal">
+{partner_logos}
         </div>
       </div>
     </section>
