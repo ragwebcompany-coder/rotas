@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900"
+     width="1600" height="900" preserveAspectRatio="xMaxYMid slice" role="img"
+     aria-label="Αφηρημένο μοτίβο υπερηχογραφικής δέσμης">
+  <defs>
+    <radialGradient id="glow" cx="96%" cy="2%" r="86%">
+      <stop offset="0%"   stop-color="#17497f"   stop-opacity="0.34" />
+      <stop offset="28%"  stop-color="#2166b0" stop-opacity="0.18" />
+      <stop offset="62%"  stop-color="#2166b0" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#2166b0" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="fade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#fff" stop-opacity="0" />
+      <stop offset="26%" stop-color="#fff" stop-opacity="0.18" />
+      <stop offset="52%" stop-color="#fff" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#fff" stop-opacity="1" />
+    </linearGradient>
+    <mask id="leftFade">
+      <rect width="1600" height="900" fill="url(#fade)" />
+    </mask>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#glow)" />
+  <g mask="url(#leftFade)">
+    <path d="M 1538.0 118.8 A 210.0 210.0 0 0 1 1358.1 -147.9" stroke="#17497f" stroke-width="1.80" stroke-opacity="0.200" stroke-linecap="round" fill="none" />
+    <path d="M 1531.3 129.5 A 221.4 221.4 0 0 1 1346.4 -148.1" stroke="#2166b0" stroke-width="1.00" stroke-opacity="0.096" stroke-linecap="round" fill="none" />
+    <path d="M 1523.1 146.1 A 239.0 239.0 0 0 1 1328.5 -149.5" stroke="#2166b0" stroke-width="1.01" stroke-opacity="0.112" stroke-linecap="round" fill="none" />
+    <path d="M 1513.6 166.0 A 260.1 260.1 0 0 1 1307.2 -151.4" stroke="#2166b0" stroke-width="1.02" stroke-opacity="0.128" stroke-linecap="round" fill="none" />
+    <path d="M 1502.8 188.1 A 283.9 283.9 0 0 1 1283.3 -153.4" stroke="#2166b0" stroke-width="1.04" stroke-opacity="0.142" stroke-linecap="round" fill="none" />
+    <path d="M 1490.9 212.1 A 309.9 309.9 0 0 1 1257.1 -155.5" stroke="#2166b0" stroke-width="1.06" stroke-opacity="0.155" stroke-linecap="round" fill="none" />
+    <path d="M 1477.9 237.6 A 337.8 337.8 0 0 1 1229.1 -157.7" stroke="#2166b0" stroke-width="1.08" stroke-opacity="0.168" stroke-linecap="round" fill="none" />
+    <path d="M 1463.9 264.6 A 367.3 367.3 0 0 1 1199.4 -159.9" stroke="#17497f" stroke-width="1.94" stroke-opacity="0.337" stroke-linecap="round" fill="none" />
+    <path d="M 1449.3 292.7 A 398.4 398.4 0 0 1 1168.2 -162.1" stroke="#2166b0" stroke-width="1.13" stroke-opacity="0.192" stroke-linecap="round" fill="none" />
+    <path d="M 1434.2 322.1 A 430.9 430.9 0 0 1 1135.6 -164.6" stroke="#2166b0" stroke-width="1.16" stroke-opacity="0.202" stroke-linecap="round" fill="none" />
+    <path d="M 1418.8 352.7 A 464.7 464.7 0 0 1 1101.8 -167.3" stroke="#2166b0" stroke-width="1.19" stroke-opacity="0.212" stroke-linecap="round" fill="none" />
+    <path d="M 1403.6 384.5 A 499.6 499.6 0 0 1 1066.9 -170.4" stroke="#2166b0" stroke-width="1.22" stroke-opacity="0.222" stroke-linecap="round" fill="none" />
+    <path d="M 1388.6 417.6 A 535.7 535.7 0 0 1 1030.9 -174.2" stroke="#2166b0" stroke-width="1.25" stroke-opacity="0.230" stroke-linecap="round" fill="none" />
+    <path d="M 1374.3 452.0 A 572.9 572.9 0 0 1 994.0 -178.6" stroke="#2166b0" stroke-width="1.29" stroke-opacity="0.238" stroke-linecap="round" fill="none" />
+    <path d="M 1361.1 487.8 A 611.1 611.1 0 0 1 956.2 -184.0" stroke="#17497f" stroke-width="2.24" stroke-opacity="0.422" stroke-linecap="round" fill="none" />
+    <path d="M 1349.1 525.1 A 650.2 650.2 0 0 1 917.6 -190.5" stroke="#2166b0" stroke-width="1.37" stroke-opacity="0.252" stroke-linecap="round" fill="none" />
+    <path d="M 1338.7 563.9 A 690.3 690.3 0 0 1 878.2 -198.2" stroke="#2166b0" stroke-width="1.41" stroke-opacity="0.258" stroke-linecap="round" fill="none" />
+    <path d="M 1330.3 604.3 A 731.3 731.3 0 0 1 838.2 -207.3" stroke="#2166b0" stroke-width="1.46" stroke-opacity="0.263" stroke-linecap="round" fill="none" />
+    <path d="M 1324.1 646.2 A 773.1 773.1 0 0 1 797.6 -218.0" stroke="#2166b0" stroke-width="1.51" stroke-opacity="0.267" stroke-linecap="round" fill="none" />
+    <path d="M 1320.5 689.8 A 815.7 815.7 0 0 1 756.4 -230.4" stroke="#2166b0" stroke-width="1.55" stroke-opacity="0.270" stroke-linecap="round" fill="none" />
+    <path d="M 1319.7 734.9 A 859.2 859.2 0 0 1 714.9 -244.6" stroke="#2166b0" stroke-width="1.60" stroke-opacity="0.272" stroke-linecap="round" fill="none" />
+    <path d="M 1321.8 781.4 A 903.4 903.4 0 0 1 672.9 -260.7" stroke="#17497f" stroke-width="2.68" stroke-opacity="0.459" stroke-linecap="round" fill="none" />
+    <path d="M 1327.1 829.3 A 948.3 948.3 0 0 1 630.7 -278.8" stroke="#2166b0" stroke-width="1.71" stroke-opacity="0.275" stroke-linecap="round" fill="none" />
+    <path d="M 1335.7 878.3 A 994.0 994.0 0 0 1 588.2 -298.8" stroke="#2166b0" stroke-width="1.77" stroke-opacity="0.275" stroke-linecap="round" fill="none" />
+    <path d="M 1347.6 928.4 A 1040.3 1040.3 0 0 1 545.6 -320.9" stroke="#2166b0" stroke-width="1.82" stroke-opacity="0.274" stroke-linecap="round" fill="none" />
+    <path d="M 1362.8 979.3 A 1087.4 1087.4 0 0 1 502.9 -344.8" stroke="#2166b0" stroke-width="1.88" stroke-opacity="0.272" stroke-linecap="round" fill="none" />
+    <path d="M 1381.3 1030.9 A 1135.1 1135.1 0 0 1 460.2 -370.7" stroke="#2166b0" stroke-width="1.94" stroke-opacity="0.270" stroke-linecap="round" fill="none" />
+    <path d="M 1402.9 1083.0 A 1183.4 1183.4 0 0 1 417.4 -398.4" stroke="#2166b0" stroke-width="2.01" stroke-opacity="0.267" stroke-linecap="round" fill="none" />
+    <path d="M 1427.3 1135.3 A 1232.4 1232.4 0 0 1 374.7 -427.6" stroke="#17497f" stroke-width="3.23" stroke-opacity="0.444" stroke-linecap="round" fill="none" />
+    <path d="M 1454.3 1187.6 A 1282.0 1282.0 0 0 1 332.0 -458.4" stroke="#2166b0" stroke-width="2.14" stroke-opacity="0.258" stroke-linecap="round" fill="none" />
+    <path d="M 1483.4 1240.0 A 1332.2 1332.2 0 0 1 289.3 -490.3" stroke="#2166b0" stroke-width="2.20" stroke-opacity="0.252" stroke-linecap="round" fill="none" />
+    <path d="M 1514.2 1292.3 A 1383.0 1383.0 0 0 1 246.6 -523.3" stroke="#2166b0" stroke-width="2.27" stroke-opacity="0.246" stroke-linecap="round" fill="none" />
+    <path d="M 1546.3 1344.3 A 1434.4 1434.4 0 0 1 203.8 -557.0" stroke="#2166b0" stroke-width="2.34" stroke-opacity="0.238" stroke-linecap="round" fill="none" />
+    <path d="M 1579.0 1396.2 A 1486.3 1486.3 0 0 1 160.7 -591.1" stroke="#2166b0" stroke-width="2.42" stroke-opacity="0.230" stroke-linecap="round" fill="none" />
+    <path d="M 1611.9 1447.9 A 1538.8 1538.8 0 0 1 117.4 -625.4" stroke="#2166b0" stroke-width="2.49" stroke-opacity="0.222" stroke-linecap="round" fill="none" />
+    <path d="M 1644.2 1499.6 A 1591.8 1591.8 0 0 1 73.6 -659.6" stroke="#17497f" stroke-width="3.89" stroke-opacity="0.379" stroke-linecap="round" fill="none" />
+    <path d="M 1675.3 1551.4 A 1645.4 1645.4 0 0 1 29.2 -693.3" stroke="#2166b0" stroke-width="2.64" stroke-opacity="0.202" stroke-linecap="round" fill="none" />
+    <path d="M 1704.5 1603.3 A 1699.5 1699.5 0 0 1 -15.9 -726.2" stroke="#2166b0" stroke-width="2.72" stroke-opacity="0.192" stroke-linecap="round" fill="none" />
+    <path d="M 1731.3 1655.7 A 1754.1 1754.1 0 0 1 -61.9 -757.9" stroke="#2166b0" stroke-width="2.80" stroke-opacity="0.180" stroke-linecap="round" fill="none" />
+    <path d="M 1754.9 1708.7 A 1809.2 1809.2 0 0 1 -109.0 -788.2" stroke="#2166b0" stroke-width="2.88" stroke-opacity="0.168" stroke-linecap="round" fill="none" />
+    <path d="M 1774.8 1762.4 A 1864.8 1864.8 0 0 1 -157.4 -816.8" stroke="#2166b0" stroke-width="2.96" stroke-opacity="0.155" stroke-linecap="round" fill="none" />
+    <path d="M 1790.3 1817.0 A 1920.9 1920.9 0 0 1 -207.0 -843.2" stroke="#2166b0" stroke-width="3.05" stroke-opacity="0.142" stroke-linecap="round" fill="none" />
+    <path d="M 1800.9 1872.7 A 1977.5 1977.5 0 0 1 -258.3 -867.4" stroke="#17497f" stroke-width="4.65" stroke-opacity="0.268" stroke-linecap="round" fill="none" />
+    <path d="M 1806.1 1929.6 A 2034.5 2034.5 0 0 1 -311.1 -888.9" stroke="#2166b0" stroke-width="3.22" stroke-opacity="0.112" stroke-linecap="round" fill="none" />
+    <path d="M 1805.3 1987.6 A 2092.0 2092.0 0 0 1 -365.7 -907.6" stroke="#2166b0" stroke-width="3.31" stroke-opacity="0.096" stroke-linecap="round" fill="none" />
+    <path d="M 1798.3 2046.8 A 2150.0 2150.0 0 0 1 -422.0 -923.2" stroke="#2166b0" stroke-width="3.40" stroke-opacity="0.075" stroke-linecap="round" fill="none" />
+  </g>
+</svg>

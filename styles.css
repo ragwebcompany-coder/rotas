@@ -305,22 +305,14 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   padding-top: 84px;
+  /* Πάνω στρώση: μοτίβο υπερηχογραφικής δέσμης — παράγεται από το
+     _build/make_hero_bg.py. Σβήνει προς τα αριστερά, όπου κάθεται το κείμενο. */
   background:
+    url("assets/hero-waves.svg") right center / cover no-repeat,
     radial-gradient(120% 90% at 80% 0%, var(--blush) 0%, transparent 45%),
     radial-gradient(100% 80% at 0% 100%, var(--beige) 0%, transparent 50%),
     linear-gradient(160deg, var(--sand) 0%, var(--cream) 55%, var(--sand) 100%);
   overflow: hidden;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  right: -12vw; top: 50%;
-  transform: translateY(-50%);
-  width: min(58vw, 640px);
-  aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(33,102,176,0.12), transparent 65%);
-  filter: blur(10px);
-  pointer-events: none;
 }
 .hero-inner { position: relative; max-width: 880px; }
 .hero-title {
@@ -1216,6 +1208,16 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 @media (max-width: 620px) {
   /* Watermark would sit under the lead text on narrow screens */
   .page-hero::after { display: none; }
+  /* Το μοτίβο κόβεται πολύ σε στενή οθόνη — το ρίχνουμε πίσω από το κείμενο. */
+  .hero { background-size: 190% auto, cover, cover, cover; }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(247,249,252,0.55), rgba(247,249,252,0.8));
+    pointer-events: none;
+  }
+  .hero-inner { z-index: 1; }
   .ticks.two-col { grid-template-columns: 1fr; }
   .cta-inner { flex-direction: column; align-items: flex-start; }
   .footer-inner { grid-template-columns: 1fr; gap: 1.8rem; }
