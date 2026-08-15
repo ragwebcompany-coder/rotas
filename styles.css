@@ -1903,10 +1903,47 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
     box-shadow: -20px 0 60px -30px rgba(34, 53, 79, 0.4);
     transform: translateX(100%);
     transition: transform .45s var(--ease);
+    /* Μόνο κάθετο scroll: το overflow-x κλειδώνει το πλάγιο σύρσιμο, το
+       touch-action δεσμεύει τη χειρονομία σε κάθετη κύλιση (ώστε τα tap να
+       μη «διαβάζονται» ως swipe) και το overscroll-behavior εμποδίζει το
+       scroll να περάσει στη σελίδα από πίσω. */
+    overflow-x: hidden;
     overflow-y: auto;
+    touch-action: pan-y;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
   .nav-open .nav-links { transform: translateX(0); }
+  /* Το desktop dropdown της Υπογονιμότητας έχει min-width: 340px, που είναι
+     φαρδύτερο από το συρτάρι και το έσπρωχνε 31px δεξιά. Χρειάζεται override
+     με την ίδια specificity (ο γενικός κανόνας .has-sub > .sub δεν αρκεί). */
+  .has-sub > .sub:has(a.sub-group) { min-width: 0; }
+  .nav-links li,
+  .nav-links ul,
+  .nav-links a { min-width: 0; }
+  .nav-links a,
+  .nav-links > li > a { white-space: normal; overflow-wrap: anywhere; }
   .nav-links > li > a { font-size: 0.86rem; }
+  /* Στόχοι αφής ~44px, αλλιώς τα δάχτυλα αστοχούν. */
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .btn-nav, .lang-btn { justify-content: center; }
+  /* Το padding/η γέφυρα του desktop hover δεν έχουν νόημα με αφή. */
+  .has-sub > a { padding-bottom: 0 !important; margin-bottom: 0; }
+  .has-sub > .sub::before { display: none; }
+  /* Η σελίδα από πίσω μένει ακίνητη όσο το συρτάρι είναι ανοιχτό. Το
+     position: fixed χρειάζεται γιατί το Safari στο iOS αγνοεί το
+     overflow: hidden στο body. */
+  body.scroll-locked {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
+  }
   .nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
   .nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }

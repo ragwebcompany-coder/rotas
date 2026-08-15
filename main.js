@@ -8,15 +8,42 @@
   var toggle = document.querySelector(".nav-toggle");
   var links = document.querySelector(".nav-links");
   if (toggle && links) {
-    toggle.addEventListener("click", function () {
-      var open = document.body.classList.toggle("nav-open");
+    // Όσο το συρτάρι είναι ανοιχτό η σελίδα από πίσω κλειδώνει, ώστε το scroll
+    // να μένει μέσα στο μενού και να μη «φεύγει» η θέση ανάγνωσης.
+    var lockedAt = 0;
+    var isMobileNav = function () {
+      return window.matchMedia("(max-width: 900px)").matches;
+    };
+    var lockScroll = function () {
+      lockedAt = window.pageYOffset || document.documentElement.scrollTop || 0;
+      document.body.style.top = -lockedAt + "px";
+      document.body.classList.add("scroll-locked");
+    };
+    var unlockScroll = function () {
+      if (!document.body.classList.contains("scroll-locked")) return;
+      document.body.classList.remove("scroll-locked");
+      document.body.style.top = "";
+      window.scrollTo(0, lockedAt);
+    };
+    var setNav = function (open) {
+      document.body.classList.toggle("nav-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open && isMobileNav()) lockScroll();
+      else unlockScroll();
+    };
+
+    toggle.addEventListener("click", function () {
+      setNav(!document.body.classList.contains("nav-open"));
     });
     links.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") {
-        document.body.classList.remove("nav-open");
-        toggle.setAttribute("aria-expanded", "false");
-      }
+      if (e.target.closest("a")) setNav(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setNav(false);
+    });
+    // Αν η οθόνη μεγαλώσει (περιστροφή/tablet) το συρτάρι δεν ισχύει πια.
+    window.addEventListener("resize", function () {
+      if (!isMobileNav()) setNav(false);
     });
   }
 
