@@ -230,6 +230,9 @@ def nav_html(cur):
             + "".join(subs)
             + "</ul></li>"
         )
+    items.append(f'<li><a href="{rel(cur, "iatreia.html")}"'
+                 + (' aria-current="page"' if cur == "iatreia.html" else "")
+                 + ">Τα ιατρεία μας</a></li>")
     items.append(f'<li><a href="{rel(cur, "epikoinonia.html")}">Επικοινωνία</a></li>')
     items.append(f'<li><a href="tel:+30{SITE["mobile"]}" class="btn btn-nav">Ραντεβού</a></li>')
     return "\n        ".join(items)
@@ -281,7 +284,7 @@ def footer_html(cur):
         <h3>Υπηρεσίες</h3>
         <nav aria-label="Υπηρεσίες" class="footer-links">
           {svc_links}
-          <a href="{rel(cur, 'epikoinonia.html')}">Επικοινωνία</a>
+          <a href="{rel(cur, 'iatreia.html')}">Τα ιατρεία μας</a><a href="{rel(cur, 'epikoinonia.html')}">Επικοινωνία</a>
         </nav>
         <p class="footer-hours">Ο ιατρός δέχεται κατόπιν ραντεβού.</p>
       </div>
@@ -469,7 +472,7 @@ CREDS = [
     ("FACOG", "Μέλος του Αμερικανικού Κολλεγίου Μαιευτήρων Γυναικολόγων"),
     ("Diploma in Fetal Medicine", "Fetal Medicine Foundation, Λονδίνο — ανώτερος βαθμός πιστοποίησης στην Εμβρυομητρική Ιατρική"),
     ("USC · VCMC", "Τ. Επιμελητής Μαιευτικής &amp; Γυναικολογίας, University of Southern California"),
-    ("ΛΗΤΩ &amp; ΡΕΑ", "Επιμελητής Τμήματος Εμβρυομητρικής Ιατρικής"),
+    ("ΡΕΑ", "Συνεργάτης Κλινικής Υποβοηθούμενης Αναπαραγωγής"),
     ("AAGL Award", "Βράβευση από την Αμερικανική Ένωση Γυναικολογικής Λαπαροσκόπησης"),
     ("Green Journal", "Μέλος της κριτικής επιτροπής του Obstetrics and Gynecology"),
 ]
@@ -577,7 +580,7 @@ def render_home():
     strip = "".join(f'<span>{esc(s)}</span><span class="dot">•</span>' for s in strip_items * 2)
 
     body = f"""  <main id="main">
-    <section class="hero" id="hero">
+    <section class="hero hero--photo" id="hero">
       <div class="hero-inner container">
         <p class="eyebrow reveal">{esc(SITE['role'])} · Αθήνα &amp; Νέα Σμύρνη</p>
         <h1 class="hero-title reveal">Ρώτας Μιχάλης<br /><em>MD, FACOG</em></h1>
@@ -596,6 +599,48 @@ def render_home():
       <div class="strip-track">{strip}</div>
     </div>
 
+    <section class="home-slider" id="feature-slider" aria-label="Κύριες υπηρεσίες">
+      <div class="home-slider__viewport" data-home-slider tabindex="0">
+        <article class="home-slide is-active">
+          <img src="{rel(cur, 'assets/home-slider/pregnancy-ultrasound-center.jpg')}" alt="Υπερηχογράφημα εγκυμοσύνης και καρδιοτοκογράφημα" loading="lazy" />
+          <div class="container home-slide__content">
+            <p class="eyebrow">Εμβρυομητρική</p>
+            <h2>Πρότυπο κέντρο υπερήχων εγκυμοσύνης</h2>
+            <p>Πιστοποίηση FMF London UK και εξατομικευμένη καθοδήγηση σε κάθε βήμα της εγκυμοσύνης.</p>
+            <a href="{rel(cur, 'embryomitriki/index.html')}" class="btn btn-primary">Δείτε την εμβρυομητρική</a>
+          </div>
+        </article>
+        <article class="home-slide">
+          <img src="{rel(cur, 'assets/home-slider/laparoscopic-surgery.jpg')}" alt="Λαπαροσκοπική χειρουργική στο χειρουργείο" loading="lazy" />
+          <div class="container home-slide__content">
+            <p class="eyebrow">Χειρουργική</p>
+            <h2>Εξειδίκευση στη λαπαροσκοπική χειρουργική</h2>
+            <p>Εφαρμόζουμε πρωτοποριακές τεχνικές για την αντιμετώπιση σοβαρών γυναικολογικών παθήσεων.</p>
+            <a href="{rel(cur, 'xeirourgeia/index.html')}" class="btn btn-primary">Δείτε τα χειρουργεία</a>
+          </div>
+        </article>
+        <article class="home-slide">
+          <img src="{rel(cur, 'assets/home-slider/modern-ultrasound-equipment.jpg')}" alt="Σύγχρονος υπερηχογραφικός εξοπλισμός σε εξέταση εγκυμοσύνης" loading="lazy" />
+          <div class="container home-slide__content">
+            <p class="eyebrow">Εξοπλισμός</p>
+            <h2>Σύγχρονος εξοπλισμός</h2>
+            <p>Το ιατρείο είναι άρτια εξοπλισμένο με πρωτοποριακά μηχανήματα, ώστε να παρέχει υψηλού επιπέδου υπηρεσίες.</p>
+            <a href="{rel(cur, 'iatreia.html')}" class="btn btn-primary">Δείτε τα ιατρεία μας</a>
+          </div>
+        </article>
+        <div class="home-slider__panel" aria-label="Έλεγχος παρουσίασης">
+          <button type="button" class="home-slider__arrow home-slider__arrow--prev" aria-label="Προηγούμενη προβολή"><span aria-hidden="true">&lsaquo;</span></button>
+          <div class="home-slider__controls">
+            <button type="button" class="home-slider__tab is-active" aria-label="Πρότυπο κέντρο υπερήχων εγκυμοσύνης"><span>01</span><strong>Υπέρηχοι</strong></button>
+            <button type="button" class="home-slider__tab" aria-label="Εξειδίκευση στη λαπαροσκοπική χειρουργική"><span>02</span><strong>Χειρουργική</strong></button>
+            <button type="button" class="home-slider__tab" aria-label="Σύγχρονος εξοπλισμός"><span>03</span><strong>Εξοπλισμός</strong></button>
+          </div>
+          <button type="button" class="home-slider__arrow home-slider__arrow--next" aria-label="Επόμενη προβολή"><span aria-hidden="true">&rsaquo;</span></button>
+          <div class="home-slider__progress" aria-hidden="true"><span></span></div>
+        </div>
+      </div>
+    </section>
+
     <section class="about" id="about">
       <div class="container about-grid">
         <div class="about-media reveal">
@@ -612,6 +657,14 @@ def render_home():
           <ul class="about-creds reveal">{creds_li}</ul>
           <a href="{rel(cur, 'iatros/viografiko.html')}" class="btn btn-ghost reveal">Το πλήρες βιογραφικό →</a>
         </div>
+      </div>
+    </section>
+
+    <section class="office-ambience" id="office-environment" aria-label="Σύγχρονο ιατρείο υψηλής αισθητικής">
+      <div class="container office-ambience__inner">
+        <p class="eyebrow">Οι χώροι μας</p>
+        <h2 class="office-ambience__title">Σύγχρονο, μοντέρνο, φιλικό περιβάλλον υψηλής αισθητικής</h2>
+        <a href="{rel(cur, 'iatreia.html')}" class="btn btn-primary">Δείτε τα ιατρεία μας</a>
       </div>
     </section>
 
@@ -852,6 +905,19 @@ def render_hub(sec):
     else:
         intro = ""
 
+    surgery_highlight = ""
+    if sec["dir"] == "xeirourgeia":
+        surgery_highlight = """
+    <section class="surgery-highlight">
+      <div class="container">
+        <div class="surgery-highlight-box reveal">
+          <p class="eyebrow">Εξειδίκευση</p>
+          <h2>Εξειδίκευση στη λαπαροσκοπική χειρουργική</h2>
+          <p>Εφαρμόζουμε πρωτοποριακές τεχνικές για την αντιμετώπιση σοβαρών γυναικολογικών παθήσεων.</p>
+        </div>
+      </div>
+    </section>"""
+
     page_body = f"""  <main id="main">
 {crumb_html}
     <section class="page-hero" data-mark="{sec['icon']}">
@@ -863,6 +929,7 @@ def render_hub(sec):
       </div>
     </section>
 {intro}
+{surgery_highlight}
     <section class="services services--hub">
       <div class="container">
         <div class="services-grid">
@@ -894,6 +961,143 @@ def creds_block():
 INJECT = {"iatros/akadimaikoi-titloi.html": creds_block}
 
 
+def bio_story_block(cur):
+    return f"""<section class="bio-story">
+          <div class="bio-hero-card reveal">
+            <div class="bio-hero-copy">
+              <p class="eyebrow">Διεθνής εκπαίδευση</p>
+              <h2>Μία δεκαετής πορεία σε κορυφαία πανεπιστημιακά κέντρα</h2>
+              <p>Ο ιατρός Ρώτας Μιχάλης αποφοίτησε από την Ιατρική Σχολή του Πανεπιστημίου Αθηνών.
+                Κατά τη διάρκεια των σπουδών του έλαβε πλήθος από βραβεία και τιμητικές διακρίσεις.
+                Υπήρξε επίσης υπότροφος του κληροδοτήματος Παπαδάκη και του Ιδρύματος Κρατικών
+                Υποτροφιών (ΙΚΥ) σε όλη τη διάρκεια της φοίτησης.</p>
+            </div>
+            <figure class="bio-hero-image">
+              <img src="{rel(cur, 'assets/mrotas-169.jpg')}" alt="{attr(SITE['full'])}" width="1919" height="1249" loading="eager" />
+            </figure>
+          </div>
+
+          <div class="bio-cards reveal" aria-label="Βασικά σημεία εκπαίδευσης">
+            <div class="bio-stat"><span>USMLE</span><strong>Άδεια άσκησης στις Η.Π.Α.</strong></div>
+            <div class="bio-stat"><span>2007</span><strong>Medical Board of California</strong></div>
+            <div class="bio-stat"><span>2011</span><strong>Diploma in Fetal Medicine</strong></div>
+            <div class="bio-stat"><span>20.000+</span><strong>Υπερηχογραφήματα στην Ελλάδα τα τελευταία 4 έτη</strong></div>
+          </div>
+
+          <section class="bio-panel reveal">
+            <div class="bio-panel__text">
+              <p class="eyebrow">Η.Π.Α.</p>
+              <h2>Πλήρης ειδίκευση και κλινική εμπειρία στην Αμερική</h2>
+              <p>Μετά τη λήψη του πτυχίου και ύστερα από εξαιρετικά απαιτητικές εξετάσεις (USMLE),
+                απέκτησε την άδεια ασκήσεως επαγγέλματος στις Ηνωμένες Πολιτείες Αμερικής, όπου
+                μετέβη για την πλήρη ειδίκευσή του στη Μαιευτική Γυναικολογία.</p>
+              <p>Εργάστηκε σε μεγάλα πανεπιστημιακά νοσοκομεία της Ανατολικής Ακτής των Η.Π.Α.,
+                μεταξύ των οποίων:</p>
+              <ul class="bio-checks">
+                <li>Maimonides Medical Center - State University of New York in Brooklyn (SUNY)</li>
+                <li>Memorial Sloan Kettering Cancer Center</li>
+                <li>Yale University Hospital</li>
+                <li>Coney Island Hospital</li>
+              </ul>
+            </div>
+            <div class="bio-cert-stack" aria-label="Αμερικανικές διακρίσεις">
+              <article class="bio-cert bio-cert--image">
+                <img src="{rel(cur, 'assets/bio/maimonides-chief-resident.png')}" alt="Πιστοποιητικό Chief Resident στο Maimonides Medical Center" width="1026" height="994" loading="lazy" />
+                <div>
+                  <span class="bio-cert__tag">Maimonides Medical Center</span>
+                  <h3>Chief Resident in Obstetrics and Gynecology</h3>
+                  <p>July 1, 2006 - June 30, 2007</p>
+                </div>
+              </article>
+              <article class="bio-cert bio-cert--image">
+                <img src="{rel(cur, 'assets/bio/california-medical-board.png')}" alt="Άδεια Physician and Surgeon από το Medical Board of California" width="1014" height="990" loading="lazy" />
+                <div>
+                  <span class="bio-cert__tag">Medical Board of California</span>
+                  <h3>Physician and Surgeon License</h3>
+                  <p>Άδεια ασκήσεως επαγγέλματος στην Πολιτεία της Καλιφόρνια.</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="bio-panel bio-panel--image-left reveal">
+            <figure class="bio-panel__image bio-panel__image--doctor-wall">
+              <img src="{rel(cur, 'assets/bio/doctor-certificates-wall-portrait.png')}" alt="Ο ιατρός και οι διεθνείς τίτλοι στον χώρο του ιατρείου" width="1024" height="994" loading="lazy" />
+            </figure>
+            <div class="bio-panel__text">
+              <p class="eyebrow">Εμβρυομητρική ιατρική</p>
+              <h2>Εξειδίκευση σε μία από τις μεγαλύτερες μονάδες της Νέας Υόρκης</h2>
+              <p>Ο ιατρός υπήρξε βασικό στέλεχος μίας από τις μεγαλύτερες μονάδες εμβρυομητρικής
+                ιατρικής στην πολιτεία της Νέας Υόρκης, η οποία εξειδικεύεται στην αντιμετώπιση
+                ειδικών λοιμώξεων στην εγκυμοσύνη.</p>
+              <p>Αποτέλεσμα της εμπειρίας και του έργου του στον τομέα αυτό είναι να θεωρείται στις
+                Η.Π.Α. ειδικός στις λοιμώξεις στην εγκυμοσύνη και να είναι μέλος της κριτικής επιτροπής
+                σε θέματα λοιμώξεων στην κύηση της γυναικολογικής επιθεώρησης
+                <em>Obstetrics and Gynecology</em>.</p>
+              <p>Μετά την ολοκλήρωση της εκπαίδευσης και τη λήψη του τίτλου ειδικότητας εργάστηκε ως
+                επιμελητής στο University of Southern California - Ventura Medical Center.</p>
+            </div>
+          </section>
+
+          <section class="bio-panel reveal">
+            <div class="bio-panel__text">
+              <p class="eyebrow">Λονδίνο</p>
+              <h2>Harris Birthright Research Centre for Fetal Medicine</h2>
+              <p>Ο επόμενος σταθμός της εκπαίδευσης ήταν το Λονδίνο, όπου απέκτησε την
+                υπο-ειδικότητα της εμβρυομητρικής ιατρικής και το Diploma in Fetal Medicine.</p>
+              <p>Εργάστηκε στο Harris Birthright Research Centre for Fetal Medicine του King's College
+                Hospital επί τρία έτη, δίπλα στον Καθηγητή Κύπρο Νικολαΐδη.</p>
+              <details class="bio-details" open>
+                <summary>Εξειδίκευση κατά την εκπαίδευση στο Λονδίνο</summary>
+                <ol class="bio-steps">
+                  <li>Εξέταση της Αυχενικής Διαφάνειας στις 12 εβδομάδες.</li>
+                  <li>Υπερηχογράφημα Β επιπέδου στις 20 εβδομάδες για διερεύνηση συγγενών ανωμαλιών.</li>
+                  <li>Μελέτη Doppler και υπερηχογράφημα ανάπτυξης του εμβρύου στις 32 εβδομάδες.</li>
+                  <li>Αμνιοπαρακεντήσεις και λήψη τροφοβλάστης για αποκλεισμό γενετικών ανωμαλιών.</li>
+                  <li>Laser για τη θεραπεία του συνδρόμου TTTS σε μονοχοριακά έμβρυα.</li>
+                </ol>
+              </details>
+            </div>
+            <div class="bio-cert-stack">
+              <article class="bio-cert bio-cert--image bio-cert--accent">
+                <img src="{rel(cur, 'assets/bio/fmf-diploma.png')}" alt="Diploma in Fetal Medicine από The Fetal Medicine Foundation" width="1028" height="986" loading="lazy" />
+                <div>
+                  <span class="bio-cert__tag">The Fetal Medicine Foundation</span>
+                  <h3>Diploma in Fetal Medicine</h3>
+                  <p>Ένας από τους λίγους Έλληνες Διπλωματούχους Ιατρικής Εμβρύου (FMF).</p>
+                </div>
+              </article>
+              <article class="bio-cert">
+                <span class="bio-cert__tag">Fetal Medicine Centre</span>
+                <h3>Ιδιωτικό ιατρείο Καθηγητή Κύπρου Νικολαΐδη</h3>
+                <p>Εκτέλεση εξειδικευμένων υπερηχογραφικών εξετάσεων σε διεθνές κέντρο αναφοράς.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="bio-panel bio-panel--image-left reveal">
+            <figure class="bio-panel__image">
+              <img src="{rel(cur, 'assets/bio/bio-ultrasound-care.jpg')}" alt="Ο ιατρός σε υπερηχογραφική εξέταση εγκυμοσύνης" width="1919" height="1249" loading="lazy" />
+            </figure>
+            <div class="bio-panel__text">
+              <p class="eyebrow">Σύγχρονη κλινική πράξη</p>
+              <h2>Επιστροφή στην Ελλάδα και συνεχής διεθνής δραστηριότητα</h2>
+              <p>Κατά το ίδιο χρονικό διάστημα είχε το σπάνιο προνόμιο να εργαστεί στο ιδιωτικό
+                Fetal Medicine Centre του παγκοσμίου φήμης Καθηγητή Κύπρου Νικολαΐδη στο Λονδίνο,
+                του ιατρού που, μεταξύ άλλων, ανέπτυξε την αυχενική διαφάνεια.</p>
+              <p>Φέρει επίσης πιστοποιητικό εκτέλεσης υπερηχογραφημάτων καρδιάς εμβρύου, με
+                διαπίστευση από την παιδοκαρδιολόγο με εξειδίκευση στην εμβρυϊκή υπερηχοκαρδιογραφία
+                Professor Lindsay Allan.</p>
+              <p>Ο ιατρός Ρώτας επέστρεψε στην Ελλάδα το 2011 μετά από δεκαετή διεθνή καριέρα και
+                εργάζεται στη Μονάδα Ιατρικής του Εμβρύου του Μαιευτηρίου ΡΕΑ.</p>
+              <p>Έχει δεκάδες παρουσίες και ομιλίες σε διεθνή και Παναμερικανικά συνέδρια, δεκάδες
+                δημοσιεύσεις σε έγκριτα διεθνή περιοδικά, ενώ έχει επιλεγεί από πολλά περιοδικά ως
+                κριτής άρθρων προς δημοσίευση.</p>
+            </div>
+          </section>
+        </section>"""
+
+
 def render_detail(page):
     cur = page.path
     sec = page.section
@@ -902,6 +1106,19 @@ def render_detail(page):
     if page.path in INJECT:
         body = (body + "\n        " if body else "") + INJECT[page.path]()
         words += 200
+
+    if page.path == "iatros/viografiko.html":
+        body = bio_story_block(cur)
+        words += 650
+
+    if page.path == "xeirourgeia/laparoskopisi.html":
+        laparoscopy_highlight = """<div class="surgery-highlight-box surgery-highlight-box--inline">
+          <p class="eyebrow">Εξειδίκευση</p>
+          <h2>Εξειδίκευση στη λαπαροσκοπική χειρουργική</h2>
+          <p>Εφαρμόζουμε πρωτοποριακές τεχνικές για την αντιμετώπιση σοβαρών γυναικολογικών παθήσεων.</p>
+        </div>"""
+        body = laparoscopy_highlight + ("\n        " + body if body else "")
+        words += 12
 
     if page.children:
         kid_cards = "".join(f"""        <a class="svc reveal" href="{rel(cur, k.path)}">
@@ -967,8 +1184,8 @@ def render_detail(page):
 # ---------------------------------------------------------------- clinic pages
 
 CLINIC_GALLERY = {
-    "iatros/iatreio-athinon.html": ["clinic-1.jpg", "clinic-2.jpg", "clinic-3.jpg", "clinic-4.jpg"],
-    "iatros/iatreio-neas-smyrnis.html": ["clinic-5.jpg", "clinic-6.jpg", "clinic-7.jpg", "clinic-8.jpg"],
+    "iatros/iatreio-athinon.html": [f"clinics/vas-sofias/vas-sofias-{i:02d}.jpg" for i in range(1, 17)],
+    "iatros/iatreio-neas-smyrnis.html": [f"clinics/nea-smyrni/nea-smyrni-{i:02d}.jpg" for i in range(1, 13)],
 }
 
 
@@ -1137,7 +1354,7 @@ def strip_dashes():
 # ---------------------------------------------------------------- sitemap
 
 def render_meta():
-    urls = ["index.html", "epikoinonia.html"] + sorted(ALL.keys())
+    urls = ["index.html", "iatreia.html", "epikoinonia.html"] + sorted(ALL.keys())
     xml = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">'.replace("sitemap.org", "sitemaps.org")]
     for u in urls:

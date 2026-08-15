@@ -41,6 +41,99 @@ def page(key, *blocks):
 
 
 # ══════════════════════════════════════════════════════════════════
+# ΒΙΟΓΡΑΦΙΚΟ ΙΑΤΡΟΥ
+# ══════════════════════════════════════════════════════════════════
+
+page(
+    "βιογραφικό-ιατρού",
+    p("Πλήρες βιογραφικό σημείωμα του Μιχάλη Ρώτα MD, FACOG, Μαιευτήρα "
+      "Χειρουργού Γυναικολόγου και Ειδικού Εμβρυομητρικής Ιατρικής."),
+    h2("Πανεπιστημιακή εκπαίδευση"),
+    ul(
+        "Ιατρική Σχολή Πανεπιστημίου Αθηνών - Πτυχίο Ιατρικής (8.2/10).",
+        "Ιατρική Σχολή Πανεπιστημίου Yale, New Haven, Η.Π.Α. - Μάθημα επιλογής: Υπογονιμότητα (REI).",
+        "Ιατρική Σχολή Πανεπιστημίου Yale, New Haven, Η.Π.Α. - Μάθημα επιλογής: Χειρουργική Μ.Ε.Θ.",
+    ),
+    h2("Ιατρική εξειδίκευση - Επαγγελματική εμπειρία"),
+    ul(
+        "Συνεργάτης Κλινικής Υποβοηθούμενης Αναπαραγωγής ΡΕΑ.",
+        "Τμήμα Εμβρυομητρικής Ιατρικής ΡΕΑ.",
+        "King's College Hospital, Ερευνητικό Κέντρο Εμβρυϊκής Ιατρικής, Λονδίνο, Αγγλία - Υποειδικότητα Εμβρυομητρικής Ιατρικής.",
+        "VCMC - Clinicas del Camino Real, Καλιφόρνια, Η.Π.Α. - Επιμελητής Μαιευτικής Γυναικολογίας.",
+        "Maimonides Medical Center, Πολιτειακό Πανεπιστήμιο Νέας Υόρκης, Μπρούκλυν, Η.Π.Α. - Πλήρης ειδικότητα Μαιευτικής - Γυναικολογίας.",
+        "Memorial Sloan Kettering Cancer Center, Νέα Υόρκη, Η.Π.Α. - Εξειδίκευση στη Γυναικολογική Ογκολογία.",
+        "Αντικαρκινικό Νοσοκομείο Μεταξά, Πειραιάς, Ελλάδα - Ειδικότητα Γενική Χειρουργική.",
+        "Γενικό Νοσοκομείο Κεφαλονιάς, Κεφαλονιά, Ελλάδα - Ειδικότητα Γενική Χειρουργική.",
+        "Γενικό Νοσοκομείο Σύρου, Σύρος, Ελλάδα - Υπηρεσία Υπαίθρου.",
+    ),
+    h2("Άδειες ασκήσεως επαγγέλματος - Διπλώματα"),
+    ul(
+        "2011 Δίπλωμα Εμβρυϊκής Ιατρικής - Fetal Medicine Foundation.",
+        "2010 Άδεια Ασκήσεως Υπερήχων Μαιευτικής/Γυναικολογίας, Υπ. Υγείας.",
+        "2008 Ειδικότητα Μαιευτικής Γυναικολογίας, Νομαρχία Αθηνών.",
+        "2007 Άδεια Ασκήσεως Επαγγέλματος, Πολιτεία της Καλιφόρνια.",
+        "2007 Αμερικανικό Συμβούλιο Ειδικότητας Μαιευτήρων Γυναικολόγων.",
+        "2006 Basic Life Support (BLS).",
+        "2006 Advanced Cardiac Life Support (ACLS).",
+        "2006 Neonatal Advanced Life Support (NALS).",
+        "2002 ECFMG.",
+        "2002 USMLE Step I, II, III.",
+    ),
+    h2("Συμμετοχές σε ιατρικούς συλλόγους - Επιστημονικές εταιρείες"),
+    ul(
+        "2009 Fetal Medicine Foundation.",
+        "2008 Ιατρικός Σύλλογος - Ηνωμένο Βασίλειο.",
+        "2007 Ιατρικό Συμβούλιο Πολιτείας Καλιφόρνια.",
+        "2007 Αμερικανική Ένωση Γυναικολογικής Λαπαροσκόπησης (AAGL).",
+        "2003 Αμερικανικό Κολλέγιο Μαιευτήρων-Γυναικολόγων (ACOG).",
+        "1999 Ιατρικός Σύλλογος Αθηνών.",
+    ),
+    h2("Παρουσιάσεις σε διεθνή συνέδρια"),
+    ul(
+        "06/2007 The Effect of Sleep Deprivation on Residents Performance During Simulated Laparoscopic Surgery - Resident Research Symposium, Brooklyn OB/GYN Society.",
+        "04/2007 The Effect of Sleep Deprivation on Residents Performance During Simulated Laparoscopic Surgery - Residents and Fellows Research Day Oral Presentation, New York OB Society.",
+        "05/2007 The Effect of Sleep Deprivation on Performance During Simulated Laparoscopic Surgery - Oral Presentation, 55th Annual ACOG Meeting, San Diego, California.",
+    ),
+    h2("Βραβεία - Ακαδημαϊκές επιτυχίες"),
+    ul(
+        "2009 Υποτροφία Fetal Medicine Foundation 2009-2011.",
+        "2007 1ο Βραβείο Έρευνας από την Ένωση Μαιευτήρων/Γυναικολόγων του Μπρούκλυν.",
+        "2007 1ο Βραβείο Έρευνας από την Ένωση Μαιευτήρων/Γυναικολόγων Νέας Υόρκης.",
+        "2007 Βραβείο για άριστες ικανότητες στη λαπαροσκόπηση της AAGL.",
+        "2006 Διοικητικός Διευθυντής Ειδικευομένων Maimonides Hospital.",
+        "2006 Βραβείο Έρευνας Maimonides Medical Center.",
+        "2003 Υποτροφία Κληροδοτήματος Κριεζή για μεταπτυχιακές σπουδές.",
+        "1997 Υποτροφία του Ιδρύματος Κρατικών Υποτροφιών.",
+    ),
+    h2("Επιλεγμένες δημοσιεύσεις σε διεθνή περιοδικά"),
+    ol(
+        "Rotas M, Haberman S, Zaher M, Morcos M. Prenatal diagnosis of giant fetal truncal hemangioma by means of 2- and 3-dimensional sonography with magnetic resonance imaging. J Ultrasound Med. 2006 Apr;25(4):527-31.",
+        "Rotas M, Haberman S, Levgur M. Cesarean scar ectopic pregnancies: etiology, diagnosis, and management. Obstet Gynecol. 2006 Jun;107(6):1373-81.",
+        "Rotas M, Ossowski R, Lutchman G, Levgur M. Pregnancy complicated with a giant splenic cyst: a case report and review of the literature. Arch Gynecol Obstet. 2007 Apr;275(4):301-5.",
+        "Rotas M, McCalla S, Chunhua L, Minkoff H. Methicillin resistant Staphylococcus aureus necrotizing pneumonia arising from an infected episiotomy site. Obstet Gynecol. 2007;109:533-6.",
+        "Rotas M, Minkoff H, Min D, Feldman J. The effect of acute sleep deprivation and alcohol consumption on performance during simulated laparoscopic surgery. Obstet Gynecol. 2007 April Supplements.",
+        "Haberman S, Rotas M, Perlman K, Feldman J. Variations in compliance with documentation using computerized obstetrical records. Obstet Gynecol. 2007 Jul;110(1):141-5.",
+        "Rotas M, Binder D, Khulpateea N. Gestational choriocarcinoma arising from a cornual ectopic pregnancy. A case report and review of the literature. Arch Gynecol Obstet. 2007 Dec;276(6):645-7.",
+        "Awonuga AO, Rotas M, Inudia AO, Choi C, Khulpateea N. Recurrent benign metastasizing leiomyoma after hysterectomy for uterine leiomyoma. Arch Gynecol Obst. 2008 Oct;278(4):373-6.",
+        "Awonuga AO, Shavell VI, Imudia AN, Rotas M, Diamond MP, Puscheck EE. Pathogenesis of benign metastasizing leiomyoma: a review. Obstet Gynecol Surv. 2010 Mar;65(3):189-95.",
+        "Ashoor G, Rotas M, Maiz N, Kametas NA, Nicolaides KH. Maternal thyroid function at 11-13 weeks of gestation in women with hypothyroidism treated by thyroxine. Fetal Diagn Ther. 2010 Jul;28(1):22-7.",
+        "Ashoor G, Maiz N, Rotas M, Jawdat F, Nicolaides KH. Maternal thyroid function at 11 to 13 weeks of gestation and subsequent fetal death. Thyroid. 2010 Sep;20(9):989-93.",
+        "Ashoor G, Maiz N, Rotas M, Kametas NA, Nicolaides KH. Maternal thyroid function at 11 to 13 weeks of gestation and subsequent development of preeclampsia. Prenat Diagn. 2010 Nov;30(11):1032-8.",
+        "Ashoor G, Maiz N, Rotas M, Jawdat F, Nicolaides KH. Maternal thyroid function at 11 to 13 weeks of gestation and spontaneous preterm delivery. Obstet Gynecol. 2011 Feb;117(2 Pt 1):293-8.",
+    ),
+    h2("Δραστηριότητες κριτή διεθνών περιοδικών"),
+    ul(
+        "Journal of Perinatology.",
+        "Archives of Gynecology and Obstetrics.",
+        "Gynecological Surgery.",
+        "Journal of Respiratory Diseases.",
+        "Obstetrics and Gynecology.",
+        "World Journal of Surgical Oncology.",
+    ),
+)
+
+
+# ══════════════════════════════════════════════════════════════════
 # 1. ΥΠΟΓΟΝΙΜΟΤΗΤΑ — διερεύνηση
 # ══════════════════════════════════════════════════════════════════
 

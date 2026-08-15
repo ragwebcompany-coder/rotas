@@ -55,7 +55,6 @@ SITE = {
 PARTNERS = [
     ("rea.jpg", "ΡΕΑ Μαιευτική Γυναικολογική Κλινική", "https://www.reamaternity.gr/"),
     ("iaso.jpg", "ΙΑΣΩ", "https://www.iaso.gr/"),
-    ("leto.jpg", "ΛΗΤΩ", "https://www.leto.gr/"),
     ("mitera.jpg", "ΜΗΤΕΡΑ", "https://www.mitera.gr/"),
     ("kings-college.jpg", "King’s College Hospital NHS Foundation Trust", "https://www.kch.nhs.uk/"),
     ("msk.jpg", "Memorial Sloan Kettering Cancer Center", "https://www.mskcc.org/"),
