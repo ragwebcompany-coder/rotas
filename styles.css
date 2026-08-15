@@ -1882,6 +1882,13 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 }
 
 @media (max-width: 900px) {
+  /* Το backdrop-filter κάνει το header containing block για τα fixed παιδιά
+     του, οπότε το συρτάρι της πλοήγησης παγιδευόταν μέσα στο ύψος του header
+     μόλις ο χρήστης έκανε scroll. Στο κινητό κρατάμε συμπαγές φόντο. */
+  .site-header.scrolled {
+    backdrop-filter: none;
+    background: rgba(247, 249, 252, 0.97);
+  }
   .nav-toggle { display: flex; z-index: 120; }
   .nav-links {
     position: fixed;
