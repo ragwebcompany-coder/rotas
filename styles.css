@@ -1994,6 +1994,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 @media (max-width: 620px) {
   /* Watermark would sit under the lead text on narrow screens */
   .page-hero::after { display: none; }
+  .page-title { overflow-wrap: anywhere; }
   /* Το μοτίβο κόβεται πολύ σε στενή οθόνη — το ρίχνουμε πίσω από το κείμενο. */
   .hero { background-size: 190% auto, cover, cover, cover; }
   .hero--photo {

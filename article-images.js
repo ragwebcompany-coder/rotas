@@ -14,10 +14,10 @@
   // The placeholder SVGs are generated inline (no external files needed)
   var pageImageMap = {
     // Maieftiki
-    "poreia-egkymosynis":   { label: "Εγκυμοσύνη",         icon: "🤰", color: "#2166b0" },
-    "progennitikos-elegxos":{ label: "Προγεννητικός Έλεγχος", icon: "🔬", color: "#2166b0" },
+    "poreia-egkymosynis":   { label: "Εγκυμοσύνη",         icon: "🤰", color: "#2166b0", photo: "articles/mai-poreia.jpg" },
+    "progennitikos-elegxos":{ label: "Προγεννητικός Έλεγχος", icon: "🔬", color: "#2166b0", photo: "articles/mai-prenatal.png", contain: true },
     "genikes-exetaseis":   { label: "Γενικές Εξετάσεις",     icon: "🧾", color: "#2166b0", photo: "articles/mai-genikes-exetaseis.jpg" },
-    "themata-stin-egkymosyni":{ label: "Θέματα Εγκυμοσύνης", icon: "📋", color: "#2166b0" },
+    "themata-stin-egkymosyni":{ label: "Θέματα Εγκυμοσύνης", icon: "📋", color: "#2166b0", photo: "articles/mai-themata.png", contain: true },
     "pathologia-tis-kyisis":{ label: "Παθολογία Κύησης",     icon: "⚕️", color: "#c0455a", photo: "articles/mai-pathologia-kyisis.jpg" },
     "thrombofilies-kyisis":{ label: "Θρομβοφιλίες",          icon: "🩸", color: "#2166b0", photo: "articles/mai-thrombofilies.jpg" },
     "diatrofi-stin":       { label: "Διατροφή",            icon: "🥗", color: "#2166b0", photo: "articles/mai-diatrofi.jpg" },
@@ -34,21 +34,29 @@
     "dermatikes":          { label: "Δερματικές Παθήσεις", icon: "🩹", color: "#2166b0", photo: "articles/mai-dermatikes.jpg" },
     "streptokokkos":       { label: "Στρεπτόκοκκος Β",    icon: "🦠", color: "#2166b0", photo: "articles/mai-streptokokkos.jpg" },
     "didymi-kyisi":        { label: "Δίδυμη Κύηση",        icon: "👶👶", color: "#2166b0", photo: "articles/mai-didymi-kyisi.jpg", photo2: "articles/mai-didymi-kyisi-2.jpg" },
-    "toketos":             { label: "Τοκετός",             icon: "🏥", color: "#2166b0" },
+    "toketos":             { label: "Τοκετός",             icon: "🏥", color: "#2166b0", photo: "articles/mai-vbac.png" },
     "loxeia":              { label: "Λοχεία & Θηλασμός",   icon: "🤱", color: "#2166b0", photo: "articles/mai-loxeia.jpg" },
 
     // Embryomitriki
+    // Τα ειδικά ultrasound keys προηγούνται του γενικού, επειδή η αντιστοίχιση
+    // γίνεται με indexOf και διαφορετικά όλες οι σελίδες θα έπαιρναν την ίδια εικόνα.
+    "ypirixografima-arxomenis-kyisis":{ label: "Υπερηχογράφημα Αρχόμενης Κύησης", icon: "📡", color: "#17497f", photo: "articles/emb-arxomenis.jpg" },
+    "ypirixografima-anaptyxis-embryou":{ label: "Υπερηχογράφημα Ανάπτυξης Εμβρύου", icon: "📈", color: "#17497f", photo: "articles/emb-anaptyxi.jpg" },
+    "ypirixografima-b-epipedou":{ label: "Υπερηχογράφημα Β΄ Επιπέδου", icon: "📡", color: "#17497f", photo: "articles/emb-b-epipedou.jpg" },
+    "ypirixografima-kardias-embryou":{ label: "Υπερηχογράφημα Καρδιάς Εμβρύου", icon: "❤️", color: "#17497f", photo: "articles/emb-kardia.jpg" },
+    "ypirixografima-3d-4d":{ label: "Υπερηχογράφημα 3D/4D", icon: "📡", color: "#17497f", photo: "articles/emb-3d-4d.jpg" },
+    "ypirixografima-doppler":{ label: "Υπερηχογράφημα Doppler", icon: "📈", color: "#17497f", photo: "articles/emb-doppler.jpg" },
+    "gynaikologiko-ypirixografima":{ label: "Γυν. Υπέρηχος", icon: "📡", color: "#3d6ea8", photo: "articles/gyn-ultrasound-source.jpg" },
     "ypirixografima":      { label: "Υπερηχογράφημα",      icon: "📡", color: "#17497f" },
-    "exetaseis-ygeias-embryou":{ label: "Έλεγχος Εμβρύου",     icon: "📈", color: "#17497f" },
+    "exetaseis-ygeias-embryou":{ label: "Έλεγχος Εμβρύου",     icon: "📈", color: "#17497f", photo: "articles/emb-exetaseis-ygeias.jpg" },
     "genetikes-diataraxes":{ label: "Γενετικές Διαταραχές", icon: "🧬", color: "#17497f", photo: "articles/emb-genetikes-diataraxes.jpg" },
-    "auxeniki-diafaneia":  { label: "Αυχενική Διαφάνεια",  icon: "🔍", color: "#17497f" },
-    "viopsia-trofovlastis":{ label: "Βιοψία Τροφοβλάστης", icon: "🧪", color: "#17497f" },
-    "amnioparakentisi":    { label: "Αμνιοπαρακέντηση",    icon: "💧", color: "#17497f" },
-    "nipt":                { label: "NIPT",                 icon: "🧬", color: "#17497f" },
+    "auxeniki-diafaneia":  { label: "Αυχενική Διαφάνεια",  icon: "🔍", color: "#17497f", photo: "articles/emb-auxeniki.jpg" },
+    "viopsia-trofovlastis":{ label: "Βιοψία Τροφοβλάστης", icon: "🧪", color: "#17497f", photo: "articles/emb-viopsia-trofovlastis.jpg" },
+    "amnioparakentisi":    { label: "Αμνιοπαρακέντηση",    icon: "💧", color: "#17497f", photo: "articles/emb-amnioparakentisi.jpg" },
+    "nipt":                { label: "NIPT",                 icon: "🧬", color: "#17497f", photo: "articles/emb-nipt.jpg" },
 
     // Gynaikologia
-    "gynaikologiki-exetasi":{ label: "Γυν. Εξέταση",       icon: "🩺", color: "#3d6ea8" },
-    "gynaikologiko-ypirixografima":{ label: "Γυν. Υπέρηχος", icon: "📡", color: "#3d6ea8" },
+    "gynaikologiki-exetasi":{ label: "Γυν. Εξέταση",       icon: "🩺", color: "#3d6ea8", photo: "articles/gyn-examination.png", contain: true },
     "kolposkopisi":        { label: "Κολποσκόπηση",         icon: "🔎", color: "#3d6ea8", photo: "articles/gyn-kolposkopisi.jpg" },
     "mi-fysiologiki-aimorragia":{ label: "Αιμορραγία Μήτρας",  icon: "🩸", color: "#3d6ea8", photo: "articles/gyn-mi-fysiologiki-aimorragia.jpg" },
     "exetasi-traxilou":    { label: "Εξέταση Τραχήλου",    icon: "🔬", color: "#3d6ea8", photo: "articles/gyn-test-pap-2.jpg" },
@@ -68,10 +76,10 @@
     "kalliergeia-kolpikou":{ label: "Καλλιέργεια",         icon: "🧫", color: "#3d6ea8", photo: "articles/gyn-kalliergeia-kolpikou.jpg", photo2: "articles/gyn-kalliergeia-kolpikou-2.jpg" },
     "topothetisi-spiral":  { label: "Σπιράλ",              icon: "🔄", color: "#3d6ea8", photo: "articles/gyn-topothetisi-spiral.jpg" },
     "kaftiriasmos":        { label: "Κονδυλώματα",         icon: "✂️", color: "#3d6ea8", photo: "articles/gyn-kaftiriasmos.jpg", photo2: "articles/gyn-kaftiriasmos-2.jpg" },
-    "viopsia-endomitriou": { label: "Βιοψία Ενδομητρίου",  icon: "🧪", color: "#3d6ea8" },
+    "viopsia-endomitriou": { label: "Βιοψία Ενδομητρίου",  icon: "🧪", color: "#3d6ea8", photo: "articles/gyn-biopsy.png", contain: true },
     "endomitria-spermategxysi":{ label: "IUI",             icon: "🔬", color: "#3d6ea8", photo: "articles/gyn-endomitria-spermategxysi.jpg" },
-    "epemvaseis-sto-iatreio":{ label: "Επεμβάσεις",        icon: "🏥", color: "#3d6ea8" },
-    "gynaikologika-themata":{ label: "Γυν. Θέματα",        icon: "📋", color: "#3d6ea8" },
+    "epemvaseis-sto-iatreio":{ label: "Επεμβάσεις",        icon: "🏥", color: "#3d6ea8", photo: "articles/gyn-office-procedures.png", contain: true },
+    "gynaikologika-themata":{ label: "Γυν. Θέματα",        icon: "📋", color: "#3d6ea8", photo: "articles/gyn-topics.png", contain: true },
 
     // Xeirourgeia
     // τα ειδικά keys πρώτα, αλλιώς τα πιάνουν τα γενικά "ysteroskopiki"/"laparoskopiki"
@@ -83,7 +91,7 @@
     "laparoskopisi":       { label: "Λαπαροσκόπηση",       icon: "🔬", color: "#1e5f8a", photo: "articles/xei-laparoskopisi.jpg" },
     "laparoskopiki":       { label: "Λαπαροσκοπική",       icon: "✂️", color: "#1e5f8a", photo: "articles/xei-laparoskopisi.jpg" },
     "ysterektomi":         { label: "Υστερεκτομή",         icon: "🏥", color: "#1e5f8a", photo: "articles/xei-laparoskopisi.jpg" },
-    "proetoimasia-xeirourgeiou":{ label: "Προετοιμασία",       icon: "📋", color: "#1e5f8a" },
+    "proetoimasia-xeirourgeiou":{ label: "Προετοιμασία",       icon: "📋", color: "#1e5f8a", photo: "articles/xei-preparation.jpg" },
     "konoeidis":           { label: "Κωνοειδής Εκτομή",    icon: "🔬", color: "#1e5f8a", photo: "articles/gyn-kolposkopisi.jpg" },
     "ourogynaikologia":    { label: "Ουρογυναικολογία",    icon: "💧", color: "#1e5f8a", photo: "articles/gyn-akrateia-ouron.jpg" },
     "tainia-akrateias":    { label: "Ταινία Ακράτειας",    icon: "🩹", color: "#1e5f8a", photo: "articles/xei-tainia-akrateias.jpg" },
@@ -93,8 +101,8 @@
     "ormonikos-elegxos-gynaikas":{ label: "Ορμονικός Έλεγχος γυναίκας", icon: "🧪", color: "#5b4a9f", photo: "articles/ypog-ormonikos-gynaikas.jpg", photo2: "articles/ypog-ormonikos-gynaikas-2.jpg" },
     "ormonikos-elegxos-andra":{ label: "Ορμονικός Έλεγχος άνδρα", icon: "🧪", color: "#5b4a9f", photo: "articles/ypog-ormonikos-andra.jpg" },
     "salpiggografia-hycosy":{ label: "Υστεροσαλπιγγογραφία", icon: "📡", color: "#5b4a9f", photo: "articles/ypog-salpiggografia.jpg" },
-    "ypodektikotita-endomitriou":{ label: "Υποδεκτικότητα Ενδομητρίου", icon: "🔬", color: "#5b4a9f" },
-    "xronia-endomitritida":{ label: "Χρόνια Ενδομητρίτιδα", icon: "🦠", color: "#5b4a9f" },
+    "ypodektikotita-endomitriou":{ label: "Υποδεκτικότητα Ενδομητρίου", icon: "🔬", color: "#5b4a9f", photo: "articles/gyn-examination.png", contain: true },
+    "xronia-endomitritida":{ label: "Χρόνια Ενδομητρίτιδα", icon: "🦠", color: "#5b4a9f", photo: "articles/gyn-topics.png", contain: true },
     "spermodiagramma":     { label: "Σπερμοδιάγραμμα",    icon: "🔬", color: "#5b4a9f", photo: "articles/ypog-spermodiagramma.jpg" },
     "eidikes-exetaseis-spermatos":{ label: "Ειδικές Εξετάσεις Σπέρματος", icon: "🧬", color: "#5b4a9f", photo: "articles/ypog-eidikes-exetaseis-spermatos.jpg" },
     "diereynisi-gynaikas": { label: "Διερεύνηση Γυναίκας", icon: "👩", color: "#5b4a9f", photo: "articles/ypog-ormonikos-gynaikas-2.jpg" },
@@ -102,37 +110,37 @@
     "diereynisi":          { label: "Υπογονιμότητα",      icon: "🔍", color: "#5b4a9f", photo: "articles/ypog-diereynisi.jpg" },
 
     // Ypogonimotita — 2. Θεραπείες
-    "proklisi-oothylakiorrixias":{ label: "Πρόκληση Ωοθυλακιορρηξίας", icon: "💊", color: "#5b4a9f" },
+    "proklisi-oothylakiorrixias":{ label: "Πρόκληση Ωοθυλακιορρηξίας", icon: "💊", color: "#5b4a9f", photo: "articles/ypog-ovaries.png", contain: true },
     "spermategxysi-iui":   { label: "Σπερματέγχυση (IUI)", icon: "🔬", color: "#5b4a9f", photo: "articles/gyn-endomitria-spermategxysi.jpg" },
-    "exosomatiki-gonimopoiisi":{ label: "Εξωσωματική Γονιμοποίηση", icon: "🧬", color: "#5b4a9f" },
-    "doti-spermatos":      { label: "Δότης Σπέρματος",    icon: "🎁", color: "#5b4a9f" },
-    "therapeies-ypogonimotitas":{ label: "Θεραπείες Υπογονιμότητας", icon: "⚕️", color: "#5b4a9f" },
+    "exosomatiki-gonimopoiisi":{ label: "Εξωσωματική Γονιμοποίηση", icon: "🧬", color: "#5b4a9f", photo: "articles/ypog-ivf.jpg" },
+    "doti-spermatos":      { label: "Δότης Σπέρματος",    icon: "🎁", color: "#5b4a9f", photo: "articles/ypog-gametes.jpg" },
+    "therapeies-ypogonimotitas":{ label: "Θεραπείες Υπογονιμότητας", icon: "⚕️", color: "#5b4a9f", photo: "articles/ypog-ivf.jpg" },
 
     // Ypogonimotita — 3. Νεότερες τεχνολογίες
-    "time-lapse":          { label: "Τεχνολογία Time-Lapse", icon: "🎞️", color: "#5b4a9f" },
-    "ypovoithoumeni-ekkolapsi":{ label: "Υποβοηθούμενη Εκκόλαψη", icon: "✨", color: "#5b4a9f" },
-    "neoteres-texnologies":{ label: "Νεότερες Τεχνολογίες", icon: "⚗️", color: "#5b4a9f" },
+    "time-lapse":          { label: "Τεχνολογία Time-Lapse", icon: "🎞️", color: "#5b4a9f", photo: "articles/ypog-ivf.jpg" },
+    "ypovoithoumeni-ekkolapsi":{ label: "Υποβοηθούμενη Εκκόλαψη", icon: "✨", color: "#5b4a9f", photo: "articles/ypog-ivf.jpg" },
+    "neoteres-texnologies":{ label: "Νεότερες Τεχνολογίες", icon: "⚗️", color: "#5b4a9f", photo: "articles/ypog-ivf.jpg" },
 
     // Ypogonimotita — λοιπά
-    "symvouleftiki-gonimotitas":{ label: "Συμβουλευτική",  icon: "💬", color: "#5b4a9f" },
+    "symvouleftiki-gonimotitas":{ label: "Συμβουλευτική",  icon: "💬", color: "#5b4a9f", photo: "articles/mai-vbac.png" },
     "axiologisi-ypogonimotitas":{ label: "Αξιολόγηση",         icon: "🔍", color: "#5b4a9f", photo: "articles/ypog-diereynisi.jpg" },
     "epanalambanomenes-apovoles":{ label: "Επαναλ. Αποβολές",  icon: "💜", color: "#5b4a9f", photo: "articles/mai-epanalambanomenes-apovoles.jpg" },
-    "therapeies-exosomatikis":{ label: "IVF",              icon: "🧬", color: "#5b4a9f" },
-    "fysikos-kyklos":      { label: "Φυσικός Κύκλος",      icon: "🔄", color: "#5b4a9f" },
-    "mini-ivf":            { label: "Mini IVF",             icon: "🧪", color: "#5b4a9f" },
-    "katapsyxi-oarion":    { label: "Κατάψυξη Ωαρίων",     icon: "❄️", color: "#5b4a9f" },
-    "dorea-oarion":        { label: "Δωρεά Ωαρίων",        icon: "🎁", color: "#5b4a9f" },
-    "anazoogonisi":        { label: "PRP Ωοθηκών",         icon: "💉", color: "#5b4a9f" },
-    "parentheti-mitrotita":{ label: "Παρένθετη Μητρότητα", icon: "👩‍👶", color: "#5b4a9f" },
-    "proemfyteftikos":     { label: "PGT",                  icon: "🧬", color: "#5b4a9f" },
+    "therapeies-exosomatikis":{ label: "IVF",              icon: "🧬", color: "#5b4a9f", photo: "articles/ypog-ivf.jpg" },
+    "fysikos-kyklos":      { label: "Φυσικός Κύκλος",      icon: "🔄", color: "#5b4a9f", photo: "articles/ypog-gametes.jpg" },
+    "mini-ivf":            { label: "Mini IVF",             icon: "🧪", color: "#5b4a9f", photo: "articles/ypog-ivf.jpg" },
+    "katapsyxi-oarion":    { label: "Κατάψυξη Ωαρίων",     icon: "❄️", color: "#5b4a9f", photo: "articles/ypog-ivf.jpg" },
+    "dorea-oarion":        { label: "Δωρεά Ωαρίων",        icon: "🎁", color: "#5b4a9f", photo: "articles/ypog-gametes.jpg" },
+    "anazoogonisi":        { label: "PRP Ωοθηκών",         icon: "💉", color: "#5b4a9f", photo: "articles/ypog-prp.jpg" },
+    "parentheti-mitrotita":{ label: "Παρένθετη Μητρότητα", icon: "👩‍👶", color: "#5b4a9f", photo: "articles/mai-vbac.png" },
+    "proemfyteftikos":     { label: "PGT",                  icon: "🧬", color: "#5b4a9f", photo: "articles/ypog-pgt.jpg", contain: true },
 
     // Iatros
     "viografiko":          { label: "Βιογραφικό",          icon: "📄", color: "#2166b0" },
-    "akadimaikoi-titloi":  { label: "Ακαδημαϊκοί Τίτλοι", icon: "🎓", color: "#2166b0" },
-    "dimosieuseis":        { label: "Δημοσιεύσεις",        icon: "📚", color: "#2166b0" },
-    "i-omada-mas":         { label: "Η Ομάδα",             icon: "👥", color: "#2166b0" },
-    "i-maia-mas":          { label: "Η Μαία",              icon: "👩‍⚕️", color: "#2166b0" },
-    "embryokardiologos":   { label: "Εμβρυοκαρδιολόγος",   icon: "❤️", color: "#2166b0" },
+    "akadimaikoi-titloi":  { label: "Ακαδημαϊκοί Τίτλοι", icon: "🎓", color: "#2166b0", photo: "articles/iat-academic.jpg" },
+    "dimosieuseis":        { label: "Δημοσιεύσεις",        icon: "📚", color: "#2166b0", photo: "articles/iat-publications.jpg" },
+    "i-omada-mas":         { label: "Η Ομάδα",             icon: "👥", color: "#2166b0", photo: "articles/iat-team.jpg" },
+    "i-maia-mas":          { label: "Η Μαία",              icon: "👩‍⚕️", color: "#2166b0", photo: "articles/iat-maia.jpg" },
+    "embryokardiologos":   { label: "Εμβρυοκαρδιολόγος",   icon: "❤️", color: "#2166b0", photo: "articles/emb-kardia.jpg" },
     "oi-xoroi-mas":        { label: "Οι Χώροι",            icon: "🏢", color: "#2166b0", photo: "clinics/vas-sofias/vas-sofias-01.jpg", photo2: "clinics/nea-smyrni/nea-smyrni-01.jpg" },
     "iatreio-athinon":     { label: "Ιατρείο Αθηνών",      icon: "🏥", color: "#2166b0" },
     "iatreio-neas-smyrnis":{ label: "Ιατρείο Ν. Σμύρνης",  icon: "🏥", color: "#2166b0" }
@@ -178,7 +186,7 @@
     img.alt = cfg.label;
     img.loading = "lazy";
     img.style.cssText = hasPhoto
-      ? "width:100%; aspect-ratio:16/9; border-radius:14px; box-shadow:0 4px 15px rgba(0,0,0,0.1); object-fit:cover; object-position:center; display:block;"
+      ? "width:100%; aspect-ratio:16/9; border-radius:14px; box-shadow:0 4px 15px rgba(0,0,0,0.1); object-fit:" + (cfg.contain ? "contain" : "cover") + "; object-position:center; background:#fff; display:block;"
       : "width:100%; height:auto; border-radius:14px; box-shadow:0 4px 15px rgba(0,0,0,0.1); object-fit:cover; max-height:400px; border:1px solid #dce2e5;";
 
     var figcaption = document.createElement("figcaption");
@@ -201,6 +209,14 @@
 
   if (headings.length >= 1) {
     insertAt(0, config.image);
+  } else if (hasPhoto) {
+    // Σύντομες σελίδες χωρίς εσωτερικούς τίτλους χρειάζονται επίσης εικόνα.
+    var firstContent = body.firstElementChild;
+    if (firstContent && firstContent.nextSibling) {
+      body.insertBefore(createPlaceholder(config, config.image), firstContent.nextSibling);
+    } else {
+      body.appendChild(createPlaceholder(config, config.image));
+    }
   }
 
   // Δεύτερη εικόνα μόνο όταν υπάρχει ξεχωριστή φωτογραφία (ή για το generic placeholder,
