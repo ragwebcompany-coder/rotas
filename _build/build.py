@@ -364,7 +364,7 @@ def shell(path, title, desc, body, extra_ld=None, keywords=None):
   <meta name="description" content="{attr(desc)}" />{kw}
   <meta name="author" content="{attr(SITE['full'])}" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="theme-color" content="#eef2f8" />
+  <meta name="theme-color" content="#f8f1f2" />
   <link rel="canonical" href="{canon}" />
 
   <meta property="og:site_name" content="{attr(SITE['full'])}" />
