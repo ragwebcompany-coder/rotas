@@ -1,26 +1,26 @@
 /* ============================================================
    Δρ. Μιχάλης Ρώτας — Μαιευτήρας · Χειρουργός Γυναικολόγος
-   Palette: Blue-grey + azure / navy accents
+   Palette: Απαλό γκρι + πολύ ανοιχτό ροζ φόντο
    Font: Inter throughout
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Palette — blue-grey neutrals + azure accent axis */
-  --cream:      #f7f9fc;   /* page background            */
-  --sand:       #eef2f8;   /* alternating section bg     */
-  --beige:      #e1e8f2;
-  --blush:      #dbe7f5;   /* blue wash / highlights     */
-  --rose:       #2166b0;   /* ← primary azure accent     */
-  --rose-ink:   #17497f;   /* small text on light bg     */
-  --rose-soft:  #7fa9d8;
-  --taupe:      #6d7c91;
-  --mocha:      #4a5c75;   /* eyebrows / meta text       */
-  --cocoa:      #22354f;   /* headings, footer bg        */
-  --ink:        #2a3644;   /* body text                  */
-  --ink-soft:   #58657a;   /* secondary text             */
-  --line:       #d8e0ea;   /* hairlines / borders        */
+  /* Palette — απαλά γκρι με πολύ ανοιχτό ροζ φόντο */
+  --cream:      #fdf8f9;   /* page background — ιδέα ροζ */
+  --sand:       #f8f1f2;   /* alternating section bg     */
+  --beige:      #ece4e5;
+  --blush:      #f2e8ea;   /* ροζ wash / highlights      */
+  --rose:       #79818c;   /* ← primary accent: μέτριο γκρι */
+  --rose-ink:   #545b64;   /* small text on light bg     */
+  --rose-soft:  #a9afb7;
+  --taupe:      #8a9097;
+  --mocha:      #616870;   /* eyebrows / meta text       */
+  --cocoa:      #343a41;   /* headings, footer bg        */
+  --ink:        #363b41;   /* body text                  */
+  --ink-soft:   #676d74;   /* secondary text             */
+  --line:       #e7dfe1;   /* hairlines / borders        */
   --white:      #ffffff;
 
   /* Type — Inter everywhere */
@@ -118,14 +118,14 @@ a { color: inherit; text-decoration: none; }
               color .35s var(--ease), border-color .35s var(--ease), box-shadow .4s var(--ease);
 }
 .btn-primary {
-  background: linear-gradient(135deg, #2166b0 0%, #17497f 100%);
+  background: linear-gradient(135deg, #79818c 0%, #545b64 100%);
   color: #fff;
-  box-shadow: 0 14px 32px -14px rgba(33, 102, 176, 0.55);
+  box-shadow: 0 14px 32px -14px rgba(121, 129, 140, 0.55);
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, #2b7bcc 0%, #143f6e 100%);
+  background: linear-gradient(135deg, #8b939d 0%, #474d55 100%);
   transform: translateY(-3px);
-  box-shadow: 0 20px 40px -14px rgba(33, 102, 176, 0.65);
+  box-shadow: 0 20px 40px -14px rgba(121, 129, 140, 0.65);
 }
 .btn-ghost {
   background: transparent;
@@ -144,9 +144,9 @@ a { color: inherit; text-decoration: none; }
   transition: background .4s var(--ease), box-shadow .4s var(--ease), backdrop-filter .4s var(--ease);
 }
 .site-header.scrolled {
-  background: rgba(247, 249, 252, 0.92);
+  background: rgba(253, 248, 249, 0.92);
   backdrop-filter: blur(14px);
-  box-shadow: 0 1px 0 var(--line), 0 14px 40px -30px rgba(34, 53, 79, 0.35);
+  box-shadow: 0 1px 0 var(--line), 0 14px 40px -30px rgba(52, 58, 65, 0.35);
 }
 .nav {
   display: flex;
@@ -201,14 +201,14 @@ a { color: inherit; text-decoration: none; }
 .nav-links > li > a:not(.btn):hover { color: var(--rose); }
 .nav-links > li > a:not(.btn):hover::after { transform: scaleX(1); transform-origin: left; }
 .btn-nav {
-  background: linear-gradient(135deg, #2166b0 0%, #17497f 100%);
+  background: linear-gradient(135deg, #79818c 0%, #545b64 100%);
   color: #fff !important;
   padding: 0.65rem 1.2rem;
   border-radius: 100px;
-  box-shadow: 0 10px 24px -12px rgba(33, 102, 176, 0.6);
+  box-shadow: 0 10px 24px -12px rgba(121, 129, 140, 0.6);
 }
 .btn-nav::after { display: none !important; }
-.btn-nav:hover { background: linear-gradient(135deg, #2b7bcc 0%, #143f6e 100%); }
+.btn-nav:hover { background: linear-gradient(135deg, #8b939d 0%, #474d55 100%); }
 
 .nav-toggle {
   display: none;
@@ -250,7 +250,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 14px;
-  box-shadow: 0 24px 50px -24px rgba(34, 53, 79, 0.35);
+  box-shadow: 0 24px 50px -24px rgba(52, 58, 65, 0.35);
   opacity: 0;
   visibility: hidden;
   transition: opacity .3s var(--ease), transform .3s var(--ease);
@@ -353,7 +353,7 @@ a { color: inherit; text-decoration: none; }
 }
 .hero--photo {
   background:
-    linear-gradient(90deg, rgba(247, 249, 252, 0.98) 0%, rgba(247, 249, 252, 0.86) 34%, rgba(247, 249, 252, 0.48) 57%, rgba(247, 249, 252, 0.08) 100%),
+    linear-gradient(90deg, rgba(253, 248, 249, 0.98) 0%, rgba(253, 248, 249, 0.86) 34%, rgba(253, 248, 249, 0.48) 57%, rgba(253, 248, 249, 0.08) 100%),
     url("assets/home/pregnancy-family-hero.jpg") center center / cover no-repeat;
 }
 .hero-inner { position: relative; max-width: 880px; }
@@ -363,11 +363,13 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(2rem, 1.2rem + 4.2vw, 3.6rem);
   line-height: 1.12;
   letter-spacing: -0.02em;
-  color: var(--cocoa);
+  /* Ο τίτλος κρατάει το δίχρωμο μπλε, κατ' εξαίρεση της γκρι παλέτας. */
+  color: #22354f;
   margin: 0 0 1.6rem;
   text-align: left;
+  text-transform: uppercase;
 }
-.hero-title em { font-style: normal; color: var(--rose); font-weight: 400; }
+.hero-title em { font-style: normal; color: #2166b0; font-weight: inherit; }
 .hero-title span { display: inline; }
 .hero-title span + span::before { content: " "; }
 .hero-lead {
@@ -375,7 +377,9 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(0.96rem, 0.92rem + 0.22vw, 1.05rem);
   color: var(--ink-soft);
   margin: 0 0 2.4rem;
-  text-align: left;
+  text-align: justify;
+  text-wrap: pretty;
+  hyphens: auto;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
 .hero--photo .hero-inner { max-width: 720px; }
@@ -498,7 +502,7 @@ a { color: inherit; text-decoration: none; }
   inset: 0;
   background:
     linear-gradient(90deg, rgba(11, 26, 43, 0.86) 0%, rgba(20, 50, 79, 0.62) 42%, rgba(20, 50, 79, 0.12) 78%),
-    linear-gradient(0deg, rgba(9, 20, 34, 0.36), transparent 42%);
+    linear-gradient(0deg, rgba(24, 26, 29, 0.36), transparent 42%);
 }
 .home-slide__content {
   position: relative;
@@ -515,7 +519,7 @@ a { color: inherit; text-decoration: none; }
   color: #fff;
   margin: 0 0 1rem;
   text-align: left;
-  text-shadow: 0 20px 48px rgba(9, 22, 39, 0.36);
+  text-shadow: 0 20px 48px rgba(24, 26, 29, 0.36);
 }
 .home-slide p:not(.eyebrow) {
   max-width: 62ch;
@@ -538,7 +542,7 @@ a { color: inherit; text-decoration: none; }
   padding: 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 8px;
-  background: rgba(9, 20, 34, 0.44);
+  background: rgba(24, 26, 29, 0.44);
   box-shadow: 0 20px 54px -34px rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(14px);
 }
@@ -574,7 +578,7 @@ a { color: inherit; text-decoration: none; }
 .home-slider__arrow:hover,
 .home-slider__arrow:focus-visible {
   transform: translateY(-2px);
-  background: rgba(33, 102, 176, 0.78);
+  background: rgba(121, 129, 140, 0.78);
   border-color: rgba(255, 255, 255, 0.58);
 }
 .home-slider__tab {
@@ -613,12 +617,12 @@ a { color: inherit; text-decoration: none; }
 .home-slider__tab:focus-visible {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.42);
-  background: rgba(33, 102, 176, 0.45);
+  background: rgba(121, 129, 140, 0.45);
   color: #fff;
 }
 .home-slider__tab.is-active {
   border-color: rgba(125, 184, 255, 0.7);
-  background: linear-gradient(135deg, rgba(33, 102, 176, 0.72), rgba(255, 255, 255, 0.12));
+  background: linear-gradient(135deg, rgba(121, 129, 140, 0.72), rgba(255, 255, 255, 0.12));
   color: #fff;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
@@ -656,7 +660,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   background:
-    linear-gradient(90deg, rgba(24, 39, 60, 0.78) 0%, rgba(24, 39, 60, 0.48) 38%, rgba(24, 39, 60, 0.06) 72%),
+    linear-gradient(90deg, rgba(44, 48, 53, 0.78) 0%, rgba(44, 48, 53, 0.48) 38%, rgba(44, 48, 53, 0.06) 72%),
     url("assets/clinics/vas-sofias/vas-sofias-01.jpg") center center / cover no-repeat;
   overflow: hidden;
 }
@@ -665,7 +669,7 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   inset: auto 0 0;
   height: 34%;
-  background: linear-gradient(0deg, rgba(238, 242, 248, 0.14), transparent);
+  background: linear-gradient(0deg, rgba(248, 241, 242, 0.14), transparent);
   pointer-events: none;
 }
 .office-ambience__inner {
@@ -709,7 +713,7 @@ a { color: inherit; text-decoration: none; }
   object-position: 50% 22%;
   border-radius: var(--radius);
   background: var(--beige);
-  box-shadow: 0 40px 80px -40px rgba(34, 53, 79, 0.35);
+  box-shadow: 0 40px 80px -40px rgba(52, 58, 65, 0.35);
 }
 .about-media::after {
   content: "";
@@ -730,7 +734,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  box-shadow: 0 20px 44px -24px rgba(34, 53, 79, 0.4);
+  box-shadow: 0 20px 44px -24px rgba(52, 58, 65, 0.4);
 }
 .about-badge-num {
   font-family: var(--sans);
@@ -802,7 +806,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--sand);
   border-color: var(--rose);
   transform: translateY(-4px);
-  box-shadow: 0 26px 50px -26px rgba(33, 102, 176, 0.30);
+  box-shadow: 0 26px 50px -26px rgba(121, 129, 140, 0.30);
 }
 .svc-num {
   font-family: var(--sans);
@@ -862,7 +866,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   border-left: 4px solid var(--rose);
   border-radius: 14px;
   padding: clamp(1.5rem, 3vw, 2.2rem);
-  box-shadow: 0 24px 55px -42px rgba(34, 53, 79, 0.35);
+  box-shadow: 0 24px 55px -42px rgba(52, 58, 65, 0.35);
 }
 .surgery-highlight-box .eyebrow { margin-bottom: 0.55rem; }
 .surgery-highlight-box h2 {
@@ -1056,7 +1060,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   color: inherit;
   transition: transform .4s var(--ease), box-shadow .4s var(--ease);
 }
-.clinic-card:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -34px rgba(34, 53, 79, 0.3); }
+.clinic-card:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -34px rgba(52, 58, 65, 0.3); }
 .clinic-card img { width: 100%; height: 230px; object-fit: cover; }
 .clinic-body { padding: 1.7rem; }
 .clinic-card h3 {
@@ -1086,7 +1090,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid var(--line);
-  box-shadow: 0 26px 60px -42px rgba(34, 53, 79, 0.45);
+  box-shadow: 0 26px 60px -42px rgba(52, 58, 65, 0.45);
   background: var(--white);
 }
 .bio-portrait img {
@@ -1107,12 +1111,12 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   position: relative;
   overflow: hidden;
   min-width: 0;
-  border: 1px solid rgba(154, 178, 209, 0.42);
+  border: 1px solid rgba(172, 177, 183, 0.42);
   border-radius: 20px;
   background:
     linear-gradient(135deg, rgba(255,255,255,0.94), rgba(239,246,255,0.78)),
-    radial-gradient(circle at 12% 20%, rgba(33, 102, 176, 0.12), transparent 34%);
-  box-shadow: 0 26px 70px -48px rgba(34, 53, 79, 0.45);
+    radial-gradient(circle at 12% 20%, rgba(121, 129, 140, 0.12), transparent 34%);
+  box-shadow: 0 26px 70px -48px rgba(52, 58, 65, 0.45);
 }
 .bio-hero-card::before,
 .bio-panel::before {
@@ -1121,8 +1125,8 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(33, 102, 176, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(33, 102, 176, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(121, 129, 140, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(121, 129, 140, 0.08) 1px, transparent 1px);
   background-size: 34px 34px;
   mask-image: linear-gradient(120deg, rgba(0,0,0,0.28), transparent 58%);
 }
@@ -1187,17 +1191,17 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   min-width: 0;
 }
 .bio-stat {
-  border: 1px solid rgba(154, 178, 209, 0.45);
+  border: 1px solid rgba(172, 177, 183, 0.45);
   border-radius: 16px;
   padding: 1rem;
   background: rgba(255,255,255,0.82);
-  box-shadow: 0 18px 45px -40px rgba(34, 53, 79, 0.45);
+  box-shadow: 0 18px 45px -40px rgba(52, 58, 65, 0.45);
   transition: transform .35s var(--ease), border-color .35s var(--ease);
 }
-.bio-stat:hover { transform: translateY(-4px); border-color: rgba(33, 102, 176, 0.45); }
+.bio-stat:hover { transform: translateY(-4px); border-color: rgba(121, 129, 140, 0.45); }
 .bio-stat span {
   display: block;
-  color: #2166b0;
+  color: #79818c;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1247,8 +1251,8 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   width: 0.65rem;
   height: 0.65rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, #2166b0, #74a7db);
-  box-shadow: 0 0 0 5px rgba(33, 102, 176, 0.1);
+  background: linear-gradient(135deg, #79818c, #74a7db);
+  box-shadow: 0 0 0 5px rgba(121, 129, 140, 0.1);
 }
 .bio-cert-stack {
   display: grid;
@@ -1256,7 +1260,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   gap: 1rem;
 }
 .bio-cert {
-  border: 1px solid rgba(154, 178, 209, 0.5);
+  border: 1px solid rgba(172, 177, 183, 0.5);
   border-radius: 16px;
   padding: 1.2rem;
   background: rgba(255,255,255,0.72);
@@ -1277,7 +1281,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   border-radius: 12px;
   border: 1px solid var(--line);
   background: #f9fbfe;
-  box-shadow: 0 18px 40px -34px rgba(34, 53, 79, 0.55);
+  box-shadow: 0 18px 40px -34px rgba(52, 58, 65, 0.55);
   margin-bottom: 0.9rem;
   transition: transform .45s var(--ease), filter .45s var(--ease);
 }
@@ -1286,11 +1290,11 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   filter: contrast(1.03) saturate(1.04);
 }
 .bio-cert--accent {
-  background: linear-gradient(135deg, rgba(33,102,176,0.12), rgba(255,255,255,0.82));
+  background: linear-gradient(135deg, rgba(121, 129, 140,0.12), rgba(255,255,255,0.82));
 }
 .bio-cert__tag {
   display: block;
-  color: #2166b0;
+  color: #79818c;
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -1310,7 +1314,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 }
 .bio-details {
   margin-top: 1.2rem;
-  border: 1px solid rgba(154, 178, 209, 0.5);
+  border: 1px solid rgba(172, 177, 183, 0.5);
   border-radius: 16px;
   padding: 0.95rem 1rem;
   background: rgba(255,255,255,0.7);
@@ -1370,8 +1374,8 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
-  border: 1px solid rgba(216, 224, 234, 0.9);
-  box-shadow: 0 18px 42px -30px rgba(34, 53, 79, 0.5);
+  border: 1px solid rgba(231, 223, 225, 0.9);
+  box-shadow: 0 18px 42px -30px rgba(52, 58, 65, 0.5);
 }
 .office-collage img:nth-child(1) { grid-column: span 6; grid-row: span 3; }
 .office-collage img:nth-child(2),
@@ -1389,6 +1393,134 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 .svc-body .office-collage {
   grid-auto-rows: 72px;
   margin-bottom: 2rem;
+}
+
+/* ============================================================
+   Υπηρεσίες στα ιατρεία
+   ============================================================ */
+.office-services { padding-block: var(--section-y); }
+.office-services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.8vw, 1.4rem);
+}
+.office-service {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease);
+}
+.office-service:hover {
+  transform: translateY(-5px);
+  border-color: var(--rose-soft);
+  box-shadow: 0 26px 48px -30px rgba(52, 58, 65, 0.45);
+}
+.office-service__media {
+  display: block;
+  overflow: hidden;
+  background: var(--beige);
+}
+.office-service__media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform .7s var(--ease);
+}
+.office-service:hover .office-service__media img { transform: scale(1.05); }
+.office-service__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  flex: 1;
+  padding: 1.1rem 1.2rem 1.3rem;
+}
+.office-service__body h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--cocoa);
+  margin: 0;
+  flex: 1;
+}
+
+@media (max-width: 980px) {
+  .office-services__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .office-services__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   Photo album — Τοκετοί
+   ============================================================ */
+.photo-album {
+  padding-block: var(--section-y);
+  background: var(--sand);
+}
+.photo-album__head {
+  max-width: 720px;
+  margin: 0 0 clamp(1.8rem, 3vw, 2.6rem);
+}
+.photo-album__title {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 1.15rem + 1.9vw, 2.6rem);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  color: var(--cocoa);
+  margin: 0 0 0.9rem;
+  text-align: left;
+}
+.photo-album__text {
+  margin: 0;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+.photo-album__grid {
+  --album-gap: clamp(0.55rem, 1.4vw, 0.9rem);
+  --album-cols: 4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--album-gap);
+}
+.photo-album__grid figure {
+  flex: 0 0 calc((100% - (var(--album-cols) - 1) * var(--album-gap)) / var(--album-cols));
+  max-width: calc((100% - (var(--album-cols) - 1) * var(--album-gap)) / var(--album-cols));
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(231, 223, 225, 0.9);
+  background: var(--beige);
+  box-shadow: 0 18px 42px -30px rgba(52, 58, 65, 0.5);
+}
+.photo-album__grid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform .7s var(--ease);
+}
+.photo-album__grid figure:hover img { transform: scale(1.04); }
+.photo-album__grid figure[hidden] { display: none; }
+.photo-album__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+}
+.photo-album__note {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--taupe);
+}
+
+@media (max-width: 760px) {
+  .photo-album__grid { --album-cols: 2; }
 }
 
 /* ============================================================
@@ -1694,7 +1826,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--line);
-  box-shadow: 0 40px 80px -44px rgba(34, 53, 79, 0.30);
+  box-shadow: 0 40px 80px -44px rgba(52, 58, 65, 0.30);
   min-height: 360px;
 }
 .contact-map iframe { width: 100%; height: 100%; min-height: 360px; border: 0; filter: grayscale(0.15) saturate(0.9); }
@@ -1753,7 +1885,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 .partner:hover {
   transform: translateY(-4px);
   border-color: var(--rose-soft);
-  box-shadow: 0 22px 44px -26px rgba(34, 53, 79, 0.4);
+  box-shadow: 0 22px 44px -26px rgba(52, 58, 65, 0.4);
 }
 .partner:hover img { filter: none; opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
@@ -1887,7 +2019,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
      μόλις ο χρήστης έκανε scroll. Στο κινητό κρατάμε συμπαγές φόντο. */
   .site-header.scrolled {
     backdrop-filter: none;
-    background: rgba(247, 249, 252, 0.97);
+    background: rgba(253, 248, 249, 0.97);
   }
   .nav-toggle { display: flex; z-index: 120; }
   .nav-links {
@@ -1900,7 +2032,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
     gap: 0.6rem;
     padding: 6rem 1.8rem 3rem;
     background: var(--white);
-    box-shadow: -20px 0 60px -30px rgba(34, 53, 79, 0.4);
+    box-shadow: -20px 0 60px -30px rgba(52, 58, 65, 0.4);
     transform: translateX(100%);
     transition: transform .45s var(--ease);
     /* Μόνο κάθετο scroll: το overflow-x κλειδώνει το πλάγιο σύρσιμο, το
@@ -1999,7 +2131,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   .hero { background-size: 190% auto, cover, cover, cover; }
   .hero--photo {
     background:
-      linear-gradient(90deg, rgba(247, 249, 252, 0.98) 0%, rgba(247, 249, 252, 0.88) 48%, rgba(247, 249, 252, 0.42) 100%),
+      linear-gradient(90deg, rgba(253, 248, 249, 0.98) 0%, rgba(253, 248, 249, 0.88) 48%, rgba(253, 248, 249, 0.42) 100%),
       url("assets/home/pregnancy-family-hero.jpg") 55% center / cover no-repeat;
   }
   .hero--photo .hero-inner {
@@ -2043,14 +2175,14 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(247,249,252,0.55), rgba(247,249,252,0.8));
+    background: linear-gradient(180deg, rgba(253, 248, 249,0.55), rgba(253, 248, 249,0.8));
     pointer-events: none;
   }
   .hero-inner { z-index: 1; }
   .office-ambience {
     min-height: 560px;
     background:
-      linear-gradient(90deg, rgba(24, 39, 60, 0.86) 0%, rgba(24, 39, 60, 0.64) 58%, rgba(24, 39, 60, 0.22) 100%),
+      linear-gradient(90deg, rgba(44, 48, 53, 0.86) 0%, rgba(44, 48, 53, 0.64) 58%, rgba(44, 48, 53, 0.22) 100%),
       url("assets/clinics/vas-sofias/vas-sofias-01.jpg") 58% center / cover no-repeat;
   }
   .office-ambience__inner { padding-block: 4rem; }
@@ -2061,8 +2193,8 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   .home-slider__viewport { min-height: 620px; }
   .home-slide::after {
     background:
-      linear-gradient(90deg, rgba(24, 39, 60, 0.86) 0%, rgba(24, 39, 60, 0.64) 64%, rgba(24, 39, 60, 0.2) 100%),
-      linear-gradient(0deg, rgba(24, 39, 60, 0.36), transparent 48%);
+      linear-gradient(90deg, rgba(44, 48, 53, 0.86) 0%, rgba(44, 48, 53, 0.64) 64%, rgba(44, 48, 53, 0.2) 100%),
+      linear-gradient(0deg, rgba(44, 48, 53, 0.36), transparent 48%);
   }
   .home-slide__content {
     padding-block: 4rem 5rem;
@@ -2176,7 +2308,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 .lang-btn:hover {
   border-color: var(--rose);
   color: var(--rose);
-  background: rgba(33, 102, 176, 0.06);
+  background: rgba(121, 129, 140, 0.06);
 }
 .lang-flag {
   font-weight: 700;

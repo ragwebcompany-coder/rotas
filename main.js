@@ -152,6 +152,29 @@
     startSlider();
   }
 
+  // Photo albums — «Δείτε περισσότερα»
+  var albums = document.querySelectorAll("[data-photo-album]");
+  Array.prototype.forEach.call(albums, function (album) {
+    var albumBtn = album.querySelector("[data-album-toggle]");
+    if (!albumBtn) return;
+    var hiddenShots = Array.prototype.slice.call(album.querySelectorAll(".photo-album__grid figure[hidden]"));
+    if (!hiddenShots.length) {
+      albumBtn.hidden = true;
+      return;
+    }
+    var expanded = false;
+    albumBtn.addEventListener("click", function () {
+      expanded = !expanded;
+      hiddenShots.forEach(function (fig) { fig.hidden = !expanded; });
+      albumBtn.textContent = expanded ? "Δείτε λιγότερα" : "Δείτε περισσότερα";
+      albumBtn.setAttribute("aria-expanded", expanded ? "true" : "false");
+      if (!expanded) {
+        var top = album.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: top, behavior: "smooth" });
+      }
+    });
+  });
+
   // Count-up for the stats band
   var nums = document.querySelectorAll("[data-count]");
   var runCount = function (el) {

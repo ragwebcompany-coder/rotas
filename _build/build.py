@@ -462,10 +462,11 @@ TESTIMONIALS = [
 ]
 
 STATS = [
-    (9900, "", "Τοκετοί"),
-    (10150, "", "Αυχενικές Διαφάνειες"),
-    (7550, "", "Κολποσκοπήσεις"),
-    (6300, "", "Περιστατικά κονδυλωμάτων"),
+    (15000, "", "Τοκετοί"),
+    (20000, "", "Αυχενικές Διαφάνειες"),
+    (10000, "", "Κολποσκοπήσεις"),
+    (8000, "", "Κύκλοι Εξωσωματικής"),
+    (10000, "", "Υστεροσκοπήσεις"),
 ]
 
 CREDS = [
@@ -475,6 +476,8 @@ CREDS = [
     ("ΡΕΑ", "Συνεργάτης Κλινικής Υποβοηθούμενης Αναπαραγωγής"),
     ("AAGL Award", "Βράβευση από την Αμερικανική Ένωση Γυναικολογικής Λαπαροσκόπησης"),
     ("Green Journal", "Μέλος της κριτικής επιτροπής του Obstetrics and Gynecology"),
+    ("Memorial Sloan Kettering Cancer Centre", "Galloway Fellowship στη γυναικολογική ογκολογία"),
+    ("New York OB/GYN Society", "Πρώτο βραβείο έρευνας ειδικευομένων μαιευτικής &amp; γυναικολογίας, 2007"),
 ]
 
 HOME_CREDS = [
@@ -583,7 +586,7 @@ def render_home():
     <section class="hero hero--photo" id="hero">
       <div class="hero-inner container">
         <p class="eyebrow reveal">{esc(SITE['role'])} · Αθήνα &amp; Νέα Σμύρνη</p>
-        <h1 class="hero-title reveal">Ρώτας Μιχάλης<br /><em>MD, FACOG</em></h1>
+        <h1 class="hero-title reveal">Ρώτας Μιχάλης <em>MD, FACOG, DFM</em></h1>
         <p class="hero-lead reveal">Ειδικός Εμβρυομητρικής Ιατρικής με δεκαετή διεθνή καριέρα σε
           πανεπιστημιακά νοσοκομεία των ΗΠΑ και του Ηνωμένου Βασιλείου — για μια εγκυμοσύνη και μια
           γυναικολογική φροντίδα με ασφάλεια, τεκμηρίωση και ανθρώπινη παρουσία.</p>
@@ -628,12 +631,32 @@ def render_home():
             <a href="{rel(cur, 'iatreia.html')}" class="btn btn-primary">Δείτε τα ιατρεία μας</a>
           </div>
         </article>
+        <article class="home-slide">
+          <img src="{rel(cur, 'assets/home-slider/assisted-reproduction.jpg')}" alt="Γονιμοποίηση ωαρίου στο εμβρυολογικό εργαστήριο" loading="lazy" />
+          <div class="container home-slide__content">
+            <p class="eyebrow">Υποβοηθούμενη αναπαραγωγή</p>
+            <h2>Πολυετής εμπειρία στην υποβοηθούμενη αναπαραγωγή</h2>
+            <p>Εξατομικευμένα πρωτόκολλα εξωσωματικής γονιμοποίησης, με συνεχή παρακολούθηση σε κάθε στάδιο της προσπάθειας.</p>
+            <a href="{rel(cur, 'ypogonimotita/index.html')}" class="btn btn-primary">Δείτε την υπογονιμότητα</a>
+          </div>
+        </article>
+        <article class="home-slide">
+          <img src="{rel(cur, 'assets/home-slider/high-risk-pregnancy.jpg')}" alt="Έγκυος με υπερηχογράφημα και τα παιδιά της" loading="lazy" />
+          <div class="container home-slide__content">
+            <p class="eyebrow">Κύηση υψηλού κινδύνου</p>
+            <h2>Εξειδίκευση στις κυήσεις υψηλού κινδύνου</h2>
+            <p>Στενή παρακολούθηση και έγκαιρη αντιμετώπιση κάθε επιπλοκής, με πιστοποίηση στην Εμβρυομητρική Ιατρική.</p>
+            <a href="{rel(cur, 'maieftiki/pathologia-tis-kyisis.html')}" class="btn btn-primary">Δείτε την παθολογία κύησης</a>
+          </div>
+        </article>
         <div class="home-slider__panel" aria-label="Έλεγχος παρουσίασης">
           <button type="button" class="home-slider__arrow home-slider__arrow--prev" aria-label="Προηγούμενη προβολή"><span aria-hidden="true">&lsaquo;</span></button>
           <div class="home-slider__controls">
             <button type="button" class="home-slider__tab is-active" aria-label="Πρότυπο κέντρο υπερήχων εγκυμοσύνης"><span>01</span><strong>Υπέρηχοι</strong></button>
             <button type="button" class="home-slider__tab" aria-label="Εξειδίκευση στη λαπαροσκοπική χειρουργική"><span>02</span><strong>Χειρουργική</strong></button>
             <button type="button" class="home-slider__tab" aria-label="Σύγχρονος εξοπλισμός"><span>03</span><strong>Εξοπλισμός</strong></button>
+            <button type="button" class="home-slider__tab" aria-label="Πολυετής εμπειρία στην υποβοηθούμενη αναπαραγωγή"><span>04</span><strong>Αναπαραγωγή</strong></button>
+            <button type="button" class="home-slider__tab" aria-label="Εξειδίκευση στις κυήσεις υψηλού κινδύνου"><span>05</span><strong>Υψηλού κινδύνου</strong></button>
           </div>
           <button type="button" class="home-slider__arrow home-slider__arrow--next" aria-label="Επόμενη προβολή"><span aria-hidden="true">&rsaquo;</span></button>
           <div class="home-slider__progress" aria-hidden="true"><span></span></div>
@@ -653,7 +676,7 @@ def render_home():
         <div class="about-copy">
           <p class="eyebrow reveal">Ο Ιατρός</p>
           <h2 class="section-title reveal">Γιατί είναι ο κατάλληλος <em>για εσένα</em></h2>
-          <p class="about-role reveal">{esc(SITE['role'])} · {esc(SITE['role2'])}</p>
+          <p class="about-role reveal">{esc(SITE['role'])} · {esc(SITE['role2'])} · Ειδικός Αναπαραγωγικής Ιατρικής</p>
           <ul class="about-creds reveal">{creds_li}</ul>
           <a href="{rel(cur, 'iatros/viografiko.html')}" class="btn btn-ghost reveal">Το πλήρες βιογραφικό →</a>
         </div>
@@ -665,6 +688,110 @@ def render_home():
         <p class="eyebrow">Οι χώροι μας</p>
         <h2 class="office-ambience__title">Σύγχρονο, μοντέρνο, φιλικό περιβάλλον υψηλής αισθητικής</h2>
         <a href="{rel(cur, 'iatreia.html')}" class="btn btn-primary">Δείτε τα ιατρεία μας</a>
+      </div>
+    </section>
+
+    <section class="photo-album" id="photo-album-toketoi" aria-labelledby="photo-album-toketoi-title" data-photo-album>
+      <div class="container">
+        <div class="photo-album__head reveal">
+          <p class="eyebrow">Photo album</p>
+          <h2 class="photo-album__title" id="photo-album-toketoi-title">Τοκετοί</h2>
+          <p class="photo-album__text">Στιγμές από τοκετούς που έφερε στον κόσμο ο Δρ. Μιχάλης Ρώτας — οι πρώτες αγκαλιές, με την άδεια των οικογενειών.</p>
+        </div>
+        <div class="photo-album__grid">
+          <figure><img src="{rel(cur, 'assets/toketoi/toketos-01.jpg')}" alt="Τοκετός — στιγμιότυπο 1 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure><img src="{rel(cur, 'assets/toketoi/toketos-02.jpg')}" alt="Τοκετός — στιγμιότυπο 2 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure><img src="{rel(cur, 'assets/toketoi/toketos-03.jpg')}" alt="Τοκετός — στιγμιότυπο 3 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure><img src="{rel(cur, 'assets/toketoi/toketos-04.jpg')}" alt="Τοκετός — στιγμιότυπο 4 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure><img src="{rel(cur, 'assets/toketoi/toketos-05.jpg')}" alt="Τοκετός — στιγμιότυπο 5 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure><img src="{rel(cur, 'assets/toketoi/toketos-06.jpg')}" alt="Τοκετός — στιγμιότυπο 6 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure><img src="{rel(cur, 'assets/toketoi/toketos-07.jpg')}" alt="Τοκετός — στιγμιότυπο 7 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure><img src="{rel(cur, 'assets/toketoi/toketos-08.jpg')}" alt="Τοκετός — στιγμιότυπο 8 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-09.jpg')}" alt="Τοκετός — στιγμιότυπο 9 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-10.jpg')}" alt="Τοκετός — στιγμιότυπο 10 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-11.jpg')}" alt="Τοκετός — στιγμιότυπο 11 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-12.jpg')}" alt="Τοκετός — στιγμιότυπο 12 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-13.jpg')}" alt="Τοκετός — στιγμιότυπο 13 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-14.jpg')}" alt="Τοκετός — στιγμιότυπο 14 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-15.jpg')}" alt="Τοκετός — στιγμιότυπο 15 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-16.jpg')}" alt="Τοκετός — στιγμιότυπο 16 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-17.jpg')}" alt="Τοκετός — στιγμιότυπο 17 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-18.jpg')}" alt="Τοκετός — στιγμιότυπο 18 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1050" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-19.jpg')}" alt="Τοκετός — στιγμιότυπο 19 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1050" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-20.jpg')}" alt="Τοκετός — στιγμιότυπο 20 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-21.jpg')}" alt="Τοκετός — στιγμιότυπο 21 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-22.jpg')}" alt="Τοκετός — στιγμιότυπο 22 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-23.jpg')}" alt="Τοκετός — στιγμιότυπο 23 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-24.jpg')}" alt="Τοκετός — στιγμιότυπο 24 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-25.jpg')}" alt="Τοκετός — στιγμιότυπο 25 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-26.jpg')}" alt="Τοκετός — στιγμιότυπο 26 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-27.jpg')}" alt="Τοκετός — στιγμιότυπο 27 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-28.jpg')}" alt="Τοκετός — στιγμιότυπο 28 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-29.jpg')}" alt="Τοκετός — στιγμιότυπο 29 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-30.jpg')}" alt="Τοκετός — στιγμιότυπο 30 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-31.jpg')}" alt="Τοκετός — στιγμιότυπο 31 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-32.jpg')}" alt="Τοκετός — στιγμιότυπο 32 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-33.jpg')}" alt="Τοκετός — στιγμιότυπο 33 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-34.jpg')}" alt="Τοκετός — στιγμιότυπο 34 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-35.jpg')}" alt="Τοκετός — στιγμιότυπο 35 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-36.jpg')}" alt="Τοκετός — στιγμιότυπο 36 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-37.jpg')}" alt="Τοκετός — στιγμιότυπο 37 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-38.jpg')}" alt="Τοκετός — στιγμιότυπο 38 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-39.jpg')}" alt="Τοκετός — στιγμιότυπο 39 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-40.jpg')}" alt="Τοκετός — στιγμιότυπο 40 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-41.jpg')}" alt="Τοκετός — στιγμιότυπο 41 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-42.jpg')}" alt="Τοκετός — στιγμιότυπο 42 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1050" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-43.jpg')}" alt="Τοκετός — στιγμιότυπο 43 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-44.jpg')}" alt="Τοκετός — στιγμιότυπο 44 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-45.jpg')}" alt="Τοκετός — στιγμιότυπο 45 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-46.jpg')}" alt="Τοκετός — στιγμιότυπο 46 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-47.jpg')}" alt="Τοκετός — στιγμιότυπο 47 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-48.jpg')}" alt="Τοκετός — στιγμιότυπο 48 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-49.jpg')}" alt="Τοκετός — στιγμιότυπο 49 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1050" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-50.jpg')}" alt="Τοκετός — στιγμιότυπο 50 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-51.jpg')}" alt="Τοκετός — στιγμιότυπο 51 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-52.jpg')}" alt="Τοκετός — στιγμιότυπο 52 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-53.jpg')}" alt="Τοκετός — στιγμιότυπο 53 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1050" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-54.jpg')}" alt="Τοκετός — στιγμιότυπο 54 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-55.jpg')}" alt="Τοκετός — στιγμιότυπο 55 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-56.jpg')}" alt="Τοκετός — στιγμιότυπο 56 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1050" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-57.jpg')}" alt="Τοκετός — στιγμιότυπο 57 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1050" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-58.jpg')}" alt="Τοκετός — στιγμιότυπο 58 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1044" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-59.jpg')}" alt="Τοκετός — στιγμιότυπο 59 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-60.jpg')}" alt="Τοκετός — στιγμιότυπο 60 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-61.jpg')}" alt="Τοκετός — στιγμιότυπο 61 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-62.jpg')}" alt="Τοκετός — στιγμιότυπο 62 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-63.jpg')}" alt="Τοκετός — στιγμιότυπο 63 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="202" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-64.jpg')}" alt="Τοκετός — στιγμιότυπο 64 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-65.jpg')}" alt="Τοκετός — στιγμιότυπο 65 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-66.jpg')}" alt="Τοκετός — στιγμιότυπο 66 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-67.jpg')}" alt="Τοκετός — στιγμιότυπο 67 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-68.jpg')}" alt="Τοκετός — στιγμιότυπο 68 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-69.jpg')}" alt="Τοκετός — στιγμιότυπο 69 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-70.jpg')}" alt="Τοκετός — στιγμιότυπο 70 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-71.jpg')}" alt="Τοκετός — στιγμιότυπο 71 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-72.jpg')}" alt="Τοκετός — στιγμιότυπο 72 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-73.jpg')}" alt="Τοκετός — στιγμιότυπο 73 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-74.jpg')}" alt="Τοκετός — στιγμιότυπο 74 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-75.jpg')}" alt="Τοκετός — στιγμιότυπο 75 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-76.jpg')}" alt="Τοκετός — στιγμιότυπο 76 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-77.jpg')}" alt="Τοκετός — στιγμιότυπο 77 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-78.jpg')}" alt="Τοκετός — στιγμιότυπο 78 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-79.jpg')}" alt="Τοκετός — στιγμιότυπο 79 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-80.jpg')}" alt="Τοκετός — στιγμιότυπο 80 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-81.jpg')}" alt="Τοκετός — στιγμιότυπο 81 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-82.jpg')}" alt="Τοκετός — στιγμιότυπο 82 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-83.jpg')}" alt="Τοκετός — στιγμιότυπο 83 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-84.jpg')}" alt="Τοκετός — στιγμιότυπο 84 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-85.jpg')}" alt="Τοκετός — στιγμιότυπο 85 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="206" height="206" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-86.jpg')}" alt="Τοκετός — στιγμιότυπο 86 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-87.jpg')}" alt="Τοκετός — στιγμιότυπο 87 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-88.jpg')}" alt="Τοκετός — στιγμιότυπο 88 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1400" loading="lazy" decoding="async" /></figure>
+          <figure hidden><img src="{rel(cur, 'assets/toketoi/toketos-89.jpg')}" alt="Τοκετός — στιγμιότυπο 89 από το φωτογραφικό άλμπουμ του Δρ. Μιχάλη Ρώτα" width="1400" height="1050" loading="lazy" decoding="async" /></figure>
+        </div>
+        <div class="photo-album__actions">
+          <button type="button" class="btn btn-primary" data-album-toggle aria-expanded="false" aria-controls="photo-album-toketoi">Δείτε περισσότερα</button>
+        </div>
       </div>
     </section>
 
@@ -729,6 +856,51 @@ def render_home():
         </div>
         <div class="clinics-grid">
 {clinic_cards}
+        </div>
+      </div>
+    </section>
+
+    <section class="office-services" id="ypiresies-iatreion">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Στα ιατρεία</p>
+          <h2 class="section-title">Υπηρεσίες στα ιατρεία</h2>
+          <p>Εξετάσεις και επεμβάσεις που πραγματοποιούνται στα ιατρεία Αθήνας και Νέας Σμύρνης,
+            με σύγχρονο εξοπλισμό και άμεσο αποτέλεσμα.</p>
+        </div>
+        <div class="office-services__grid">
+          <a class="office-service reveal" href="{rel(cur, 'embryomitriki/auxeniki-diafaneia.html')}">
+            <span class="office-service__media"><img src="{rel(cur, 'assets/articles/emb-auxeniki.jpg')}" alt="Αυχενική διαφάνεια" width="800" height="735" loading="lazy" decoding="async" /></span>
+            <span class="office-service__body"><h3>Αυχενική διαφάνεια</h3><span class="svc-more">Δείτε περισσότερα →</span></span>
+          </a>
+          <a class="office-service reveal" href="{rel(cur, 'embryomitriki/ypirixografima-b-epipedou.html')}">
+            <span class="office-service__media"><img src="{rel(cur, 'assets/articles/emb-b-epipedou.jpg')}" alt="Υπερηχογράφημα Β΄ επιπέδου" width="710" height="531" loading="lazy" decoding="async" /></span>
+            <span class="office-service__body"><h3>Υπερηχογράφημα Β΄ επιπέδου</h3><span class="svc-more">Δείτε περισσότερα →</span></span>
+          </a>
+          <a class="office-service reveal" href="{rel(cur, 'embryomitriki/amnioparakentisi.html')}">
+            <span class="office-service__media"><img src="{rel(cur, 'assets/articles/emb-amnioparakentisi.jpg')}" alt="Αμνιοπαρακέντηση" width="743" height="600" loading="lazy" decoding="async" /></span>
+            <span class="office-service__body"><h3>Αμνιοπαρακέντηση</h3><span class="svc-more">Δείτε περισσότερα →</span></span>
+          </a>
+          <a class="office-service reveal" href="{rel(cur, 'gynaikologia/kolposkopisi.html')}">
+            <span class="office-service__media"><img src="{rel(cur, 'assets/articles/gyn-kolposkopisi.jpg')}" alt="Κολποσκόπηση" width="1068" height="1600" loading="lazy" decoding="async" /></span>
+            <span class="office-service__body"><h3>Κολποσκόπηση</h3><span class="svc-more">Δείτε περισσότερα →</span></span>
+          </a>
+          <a class="office-service reveal" href="{rel(cur, 'gynaikologia/topothetisi-spiral.html')}">
+            <span class="office-service__media"><img src="{rel(cur, 'assets/articles/gyn-topothetisi-spiral.jpg')}" alt="Τοποθέτηση ενδομήτριου σπιράλ" width="1600" height="1600" loading="lazy" decoding="async" /></span>
+            <span class="office-service__body"><h3>Τοποθέτηση ενδομήτριου σπιράλ</h3><span class="svc-more">Δείτε περισσότερα →</span></span>
+          </a>
+          <a class="office-service reveal" href="{rel(cur, 'gynaikologia/kaftiriasmos-kondylomaton.html')}">
+            <span class="office-service__media"><img src="{rel(cur, 'assets/articles/gyn-kaftiriasmos.jpg')}" alt="Καυτηριασμός κονδυλωμάτων" width="1600" height="1066" loading="lazy" decoding="async" /></span>
+            <span class="office-service__body"><h3>Καυτηριασμός κονδυλωμάτων</h3><span class="svc-more">Δείτε περισσότερα →</span></span>
+          </a>
+          <a class="office-service reveal" href="{rel(cur, 'embryomitriki/nipt.html')}">
+            <span class="office-service__media"><img src="{rel(cur, 'assets/articles/emb-nipt.jpg')}" alt="Μη επεμβατικός προγεννητικός έλεγχος NIPT" width="768" height="768" loading="lazy" decoding="async" /></span>
+            <span class="office-service__body"><h3>Μη επεμβατικός προγεννητικός έλεγχος NIPT</h3><span class="svc-more">Δείτε περισσότερα →</span></span>
+          </a>
+          <a class="office-service reveal" href="{rel(cur, 'ypogonimotita/spermategxysi-iui.html')}">
+            <span class="office-service__media"><img src="{rel(cur, 'assets/articles/gyn-endomitria-spermategxysi.jpg')}" alt="Σπερματέγχυση" width="1600" height="1067" loading="lazy" decoding="async" /></span>
+            <span class="office-service__body"><h3>Σπερματέγχυση</h3><span class="svc-more">Δείτε περισσότερα →</span></span>
+          </a>
         </div>
       </div>
     </section>
@@ -881,7 +1053,7 @@ def render_hub(sec):
     <section class="about">
       <div class="container about-grid">
         <div class="about-media reveal">
-          <img src="{rel(cur, 'assets/dr-rotas.jpg')}" alt="{attr(SITE['full'])}" width="703" height="730" loading="lazy" />
+          <img src="{rel(cur, 'assets/bio/dr-rotas-embryocosmos.jpg')}" alt="{attr(SITE['full'])}" width="900" height="1200" loading="lazy" />
           <div class="about-badge">
             <span class="about-badge-num">FACOG</span>
             <span class="about-badge-label">American College of<br />Obstetricians &amp; Gynecologists</span>
@@ -890,7 +1062,7 @@ def render_hub(sec):
         <div class="about-copy">
           <p class="eyebrow reveal">Βιογραφικό</p>
           <h2 class="section-title reveal">{esc(SITE['full'])}</h2>
-          <p class="about-role reveal">{esc(SITE['role'])} · {esc(SITE['role2'])}</p>
+          <p class="about-role reveal">{esc(SITE['role'])} · {esc(SITE['role2'])} · Ειδικός Αναπαραγωγικής Ιατρικής</p>
           <ul class="about-creds reveal">{creds_li}</ul>
           <a href="{rel(cur, 'iatros/viografiko.html')}" class="btn btn-ghost reveal">Το πλήρες βιογραφικό →</a>
         </div>
@@ -1077,7 +1249,7 @@ def bio_story_block(cur):
 
           <section class="bio-panel bio-panel--image-left reveal">
             <figure class="bio-panel__image">
-              <img src="{rel(cur, 'assets/bio/bio-ultrasound-care.jpg')}" alt="Ο ιατρός σε υπερηχογραφική εξέταση εγκυμοσύνης" width="1919" height="1249" loading="lazy" />
+              <img src="{rel(cur, 'assets/bio/bio-rea-lecture.jpg')}" alt="Ο Δρ. Μιχάλης Ρώτας σε ομιλία στη Μαιευτική Γυναικολογική Κλινική ΡΕΑ" width="898" height="960" loading="lazy" />
             </figure>
             <div class="bio-panel__text">
               <p class="eyebrow">Σύγχρονη κλινική πράξη</p>

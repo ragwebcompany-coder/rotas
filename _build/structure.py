@@ -59,6 +59,7 @@ PARTNERS = [
     ("kings-college.jpg", "King’s College Hospital NHS Foundation Trust", "https://www.kch.nhs.uk/"),
     ("msk.jpg", "Memorial Sloan Kettering Cancer Center", "https://www.mskcc.org/"),
     ("maine-medical.jpg", "Maine Medical Center", "https://maimo.org/"),
+    ("fetal-medicine-centre.jpg", "The Fetal Medicine Centre", "https://fetalmedicine.com/"),
 ]
 
 # ---------------------------------------------------------------- sections
