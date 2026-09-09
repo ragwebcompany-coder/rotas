@@ -2139,9 +2139,11 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   .page-title { overflow-wrap: anywhere; }
   /* Το μοτίβο κόβεται πολύ σε στενή οθόνη — το ρίχνουμε πίσω από το κείμενο. */
   .hero { background-size: 190% auto, cover, cover, cover; }
+  /* Το πέπλο ήταν σχεδόν αδιαφανές και η φωτογραφία δεν φαινόταν καθόλου.
+     Τώρα είναι κάθετο και συμμετρικό, όσο χρειάζεται για να διαβάζεται το κείμενο. */
   .hero--photo {
     background:
-      linear-gradient(90deg, rgba(253, 248, 249, 0.98) 0%, rgba(253, 248, 249, 0.88) 48%, rgba(253, 248, 249, 0.42) 100%),
+      linear-gradient(180deg, rgba(253, 248, 249, 0.88) 0%, rgba(253, 248, 249, 0.64) 48%, rgba(253, 248, 249, 0.9) 100%),
       url("assets/home/pregnancy-family-hero.jpg") 55% center / cover no-repeat;
   }
   .hero--photo .hero-inner {
@@ -2185,7 +2187,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(253, 248, 249,0.55), rgba(253, 248, 249,0.8));
+    background: linear-gradient(180deg, rgba(253, 248, 249, 0.18), rgba(253, 248, 249, 0.42));
     pointer-events: none;
   }
   .hero-inner { z-index: 1; }
@@ -2425,4 +2427,10 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
    κρατούν δύο, ώστε η ενότητα να μη γίνεται ατέλειωτη. */
 @media (max-width: 330px) {
   .office-services__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  .hero { min-height: 92svh; }
+  .hero-lead { margin-bottom: 1.9rem; }
+  .hero .eyebrow { margin-bottom: 1rem; }
 }

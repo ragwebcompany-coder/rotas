@@ -585,7 +585,7 @@ def render_home():
     body = f"""  <main id="main">
     <section class="hero hero--photo" id="hero">
       <div class="hero-inner container">
-        <p class="eyebrow reveal">{esc(SITE['role'])} · Αθήνα &amp; Νέα Σμύρνη</p>
+        <p class="eyebrow reveal">{esc(SITE['role'])}&nbsp;· Αθήνα &amp; Νέα Σμύρνη</p>
         <h1 class="hero-title reveal">Ρώτας Μιχάλης <em>MD, FACOG, DFM</em></h1>
         <p class="hero-lead reveal">Ειδικός Εμβρυομητρικής Ιατρικής με δεκαετή διεθνή καριέρα σε
           πανεπιστημιακά νοσοκομεία των ΗΠΑ και του Ηνωμένου Βασιλείου — για μια εγκυμοσύνη και μια
