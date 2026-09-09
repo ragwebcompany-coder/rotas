@@ -2169,7 +2169,7 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
     white-space: normal;
     max-width: min(100%, 320px);
   }
-  .hero--photo .hero-actions { max-width: 330px; }
+  .hero--photo .hero-actions { max-width: 330px; margin-inline: auto; }
   .bio-hero-card,
   .bio-panel {
     border-radius: 16px;
@@ -2433,4 +2433,23 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   .hero { min-height: 92svh; }
   .hero-lead { margin-bottom: 1.9rem; }
   .hero .eyebrow { margin-bottom: 1rem; }
+}
+
+/* Κάθε περιορισμένο σε πλάτος μπλοκ του hero/slider κεντράρεται ρητά,
+   αλλιώς το max-width το κολλάει αριστερά ενώ το κείμενο είναι στο κέντρο. */
+@media (max-width: 900px) {
+  .hero-actions,
+  .hero--photo .hero-actions,
+  .hero--photo .hero-inner,
+  .hero--photo .hero-title,
+  .hero--photo .hero-lead,
+  .hero--photo .eyebrow,
+  .home-slide h2,
+  .home-slide p:not(.eyebrow),
+  .home-slide__content .eyebrow,
+  .office-ambience__title {
+    margin-inline: auto;
+  }
+  .hero-actions { width: 100%; justify-content: center; }
+  .home-slide__content .btn { margin-inline: auto; }
 }
