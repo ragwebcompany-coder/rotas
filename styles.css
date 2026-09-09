@@ -904,7 +904,8 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 .stats { padding-block: clamp(3rem, 6vw, 4.5rem); background: var(--sand); }
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  /* 5 δείκτες: ρητές στήλες ώστε να μη μένει ποτέ κενό κελί στη σειρά. */
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
@@ -1452,9 +1453,6 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 @media (max-width: 980px) {
   .office-services__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width: 520px) {
-  .office-services__grid { grid-template-columns: 1fr; }
-}
 
 /* ============================================================
    Photo album — Τοκετοί
@@ -1465,7 +1463,17 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 }
 .photo-album__head {
   max-width: 720px;
-  margin: 0 0 clamp(1.8rem, 3vw, 2.6rem);
+  margin: 0 auto clamp(1.8rem, 3vw, 2.6rem);
+  text-align: center;
+}
+.photo-album__head .eyebrow { text-align: inherit; }
+.photo-album__title::after {
+  content: "";
+  display: block;
+  width: 54px; height: 2px;
+  margin: 1rem auto 0;
+  background: var(--rose);
+  border-radius: 2px;
 }
 .photo-album__title {
   font-family: var(--sans);
@@ -1475,10 +1483,10 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   letter-spacing: -0.01em;
   color: var(--cocoa);
   margin: 0 0 0.9rem;
-  text-align: left;
+  text-align: center;
 }
 .photo-album__text {
-  margin: 0;
+  margin: 0 auto;
   color: var(--ink-soft);
   max-width: 62ch;
 }
@@ -2331,4 +2339,90 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ============================================================
+   Κεντράρισμα & προσαρμογές για tablet / κινητό
+   ============================================================ */
+@media (max-width: 1080px) {
+  .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stats-grid .stat:last-child { grid-column: span 2; }
+}
+
+@media (max-width: 900px) {
+  /* Οι μεγάλες αριστερά στοιχισμένες ενότητες κεντράρονται στο κινητό. */
+  .hero-inner,
+  .hero--photo .hero-inner { margin-inline: auto; text-align: center; }
+  .hero .eyebrow,
+  .hero-title,
+  .hero-lead,
+  .hero--photo .hero-title,
+  .hero--photo .hero-lead,
+  .hero--photo .eyebrow {
+    margin-inline: auto;
+    text-align: center;
+  }
+  /* Το τετραγωνισμένο κείμενο αφήνει άσχημα κενά σε στενή στήλη. */
+  .hero-lead { text-align: center; hyphens: none; }
+  .hero-actions { justify-content: center; }
+
+  .office-ambience__inner { text-align: center; }
+  .office-ambience .eyebrow,
+  .office-ambience__title { text-align: center; margin-inline: auto; }
+
+  .home-slide__content { text-align: center; }
+  .home-slide__content .eyebrow,
+  .home-slide h2,
+  .home-slide p:not(.eyebrow) { margin-inline: auto; text-align: center; }
+
+  .about-copy { text-align: center; }
+  .about-copy .eyebrow,
+  .about-copy .section-title,
+  .about-role { text-align: center; }
+  .about-creds { text-align: left; display: inline-block; }
+
+  .office-services__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  /* Το πάνελ του slider κεντράρεται κάτω από το κεντραρισμένο κείμενο. */
+  .home-slider__panel {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: min(320px, calc(100% - 32px));
+    max-width: min(320px, calc(100% - 32px));
+  }
+  /* Με κεντραρισμένο κείμενο, το σκούρο overlay πρέπει να είναι συμμετρικό. */
+  .office-ambience {
+    background:
+      linear-gradient(180deg, rgba(50, 46, 47, 0.72) 0%, rgba(50, 46, 47, 0.58) 55%, rgba(50, 46, 47, 0.74) 100%),
+      url("assets/clinics/vas-sofias/vas-sofias-01.jpg") 58% center / cover no-repeat;
+  }
+  .home-slide::after {
+    background:
+      linear-gradient(180deg, rgba(50, 46, 47, 0.62) 0%, rgba(50, 46, 47, 0.5) 45%, rgba(50, 46, 47, 0.8) 100%);
+  }
+
+  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats-grid .stat:last-child { grid-column: span 2; }
+  .stat { padding: 1.5rem 0.9rem; }
+
+  /* Τα tabs του slider είναι 5 — τους δίνουμε δύο σειρές αντί να στριμωχτούν. */
+  .home-slider__controls { flex-wrap: wrap; }
+  .home-slider__tab { flex: 1 1 30%; }
+
+  .cta-inner { align-items: center; text-align: center; }
+  .cta-inner .eyebrow, .cta-title, .cta-sub { text-align: center; }
+
+  /* Δύο στήλες και στα μικρά τηλέφωνα, ώστε η ενότητα να μη γίνεται ατέλειωτη. */
+  .office-services__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .office-service__body { padding: 0.85rem 0.9rem 1rem; }
+  .office-service__body h3 { font-size: 0.86rem; }
+}
+
+/* Μόνο στα πολύ στενά τηλέφωνα πέφτει σε μία στήλη — τα 360–430px
+   κρατούν δύο, ώστε η ενότητα να μη γίνεται ατέλειωτη. */
+@media (max-width: 330px) {
+  .office-services__grid { grid-template-columns: 1fr; }
 }
