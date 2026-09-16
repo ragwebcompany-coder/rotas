@@ -110,15 +110,15 @@
     "diereynisi":          { label: "Υπογονιμότητα",      icon: "🔍", color: "#5d5758", photo: "articles/ypog-diereynisi.jpg" },
 
     // Ypogonimotita — 2. Θεραπείες
-    "proklisi-oothylakiorrixias":{ label: "Πρόκληση Ωοθυλακιορρηξίας", icon: "💊", color: "#5d5758", photo: "articles/ypog-ovaries.png", contain: true },
+    "proklisi-oothylakiorrixias":{ label: "Πρόκληση Ωοθυλακιορρηξίας", icon: "💊", color: "#5d5758", photo: "articles/ypog-ovulation.jpg" },
     "spermategxysi-iui":   { label: "Σπερματέγχυση (IUI)", icon: "🔬", color: "#5d5758", photo: "articles/gyn-endomitria-spermategxysi.jpg" },
-    "exosomatiki-gonimopoiisi":{ label: "Εξωσωματική Γονιμοποίηση", icon: "🧬", color: "#5d5758", photo: "articles/ypog-ivf.jpg" },
-    "doti-spermatos":      { label: "Δότης Σπέρματος",    icon: "🎁", color: "#5d5758", photo: "articles/ypog-gametes.jpg" },
-    "therapeies-ypogonimotitas":{ label: "Θεραπείες Υπογονιμότητας", icon: "⚕️", color: "#5d5758", photo: "articles/ypog-ivf.jpg" },
+    "exosomatiki-gonimopoiisi":{ label: "Εξωσωματική Γονιμοποίηση", icon: "🧬", color: "#5d5758", photo: "articles/ypog-ivf-new.webp" },
+    "doti-spermatos":      { label: "Δότης Σπέρματος",    icon: "🎁", color: "#5d5758", photo: "articles/ypog-sperm-donor.png" },
+    "therapeies-ypogonimotitas":{ label: "Θεραπείες Υπογονιμότητας", icon: "⚕️", color: "#5d5758", photo: "articles/ypog-ivf-new.webp" },
 
     // Ypogonimotita — 3. Νεότερες τεχνολογίες
-    "time-lapse":          { label: "Τεχνολογία Time-Lapse", icon: "🎞️", color: "#5d5758", photo: "articles/ypog-ivf.jpg" },
-    "ypovoithoumeni-ekkolapsi":{ label: "Υποβοηθούμενη Εκκόλαψη", icon: "✨", color: "#5d5758", photo: "articles/ypog-ivf.jpg" },
+    "time-lapse":          { label: "Τεχνολογία Time-Lapse", icon: "🎞️", color: "#5d5758", photo: "articles/ypog-time-lapse.webp" },
+    "ypovoithoumeni-ekkolapsi":{ label: "Υποβοηθούμενη Εκκόλαψη", icon: "✨", color: "#5d5758", photo: "articles/ypog-assisted-hatching.webp" },
     "neoteres-texnologies":{ label: "Νεότερες Τεχνολογίες", icon: "⚗️", color: "#5d5758", photo: "articles/ypog-ivf.jpg" },
 
     // Ypogonimotita — λοιπά
@@ -126,13 +126,28 @@
     "axiologisi-ypogonimotitas":{ label: "Αξιολόγηση",         icon: "🔍", color: "#5d5758", photo: "articles/ypog-diereynisi.jpg" },
     "epanalambanomenes-apovoles":{ label: "Επαναλ. Αποβολές",  icon: "💜", color: "#5d5758", photo: "articles/mai-epanalambanomenes-apovoles.jpg" },
     "therapeies-exosomatikis":{ label: "IVF",              icon: "🧬", color: "#5d5758", photo: "articles/ypog-ivf.jpg" },
-    "fysikos-kyklos":      { label: "Φυσικός Κύκλος",      icon: "🔄", color: "#5d5758", photo: "articles/ypog-gametes.jpg" },
-    "mini-ivf":            { label: "Mini IVF",             icon: "🧪", color: "#5d5758", photo: "articles/ypog-ivf.jpg" },
-    "katapsyxi-oarion":    { label: "Κατάψυξη Ωαρίων",     icon: "❄️", color: "#5d5758", photo: "articles/ypog-ivf.jpg" },
-    "dorea-oarion":        { label: "Δωρεά Ωαρίων",        icon: "🎁", color: "#5d5758", photo: "articles/ypog-gametes.jpg" },
+    "fysikos-kyklos":      { label: "Φυσικός Κύκλος",      icon: "🔄", color: "#5d5758", photo: "articles/ypog-natural-cycle.jpg" },
+    "mini-ivf":            { label: "Mini IVF",             icon: "🧪", color: "#5d5758", photo: "articles/ypog-ovulation-2.jpg" },
+    "katapsyxi-oarion":    { label: "Κατάψυξη Ωαρίων",     icon: "❄️", color: "#5d5758", photo: "articles/ypog-egg-freezing.jpg" },
+    "dorea-oarion":        { label: "Δωρεά Ωαρίων",        icon: "🎁", color: "#5d5758", photo: "articles/ypog-egg-donor.jpg" },
     "anazoogonisi":        { label: "PRP Ωοθηκών",         icon: "💉", color: "#5d5758", photo: "articles/ypog-prp.jpg" },
     "parentheti-mitrotita":{ label: "Παρένθετη Μητρότητα", icon: "👩‍👶", color: "#5d5758", photo: "articles/mai-vbac.png" },
-    "proemfyteftikos":     { label: "PGT",                  icon: "🧬", color: "#5d5758", photo: "articles/ypog-pgt.jpg", contain: true },
+    "proemfyteftikos":     { label: "PGT",                  icon: "🧬", color: "#5d5758", photo: "articles/ypog-pgt-new.jpg" },
+
+    // English infertility pages — keep the same one-image-per-topic mapping.
+    "ovulation-induction": { label: "Ovulation Induction", icon: "💊", color: "#5d5758", photo: "articles/ypog-ovulation.jpg" },
+    "iui.html":             { label: "Intrauterine Insemination", icon: "🔬", color: "#5d5758", photo: "articles/gyn-endomitria-spermategxysi.jpg" },
+    "ivf.html":            { label: "In Vitro Fertilisation", icon: "🧬", color: "#5d5758", photo: "articles/ypog-ivf-new.webp" },
+    "natural-cycle-ivf":   { label: "Natural Cycle IVF", icon: "🔄", color: "#5d5758", photo: "articles/ypog-natural-cycle.jpg" },
+    "egg-donation":        { label: "IVF with Egg Donation", icon: "🎁", color: "#5d5758", photo: "articles/ypog-egg-donor.jpg" },
+    "sperm-donation":       { label: "IVF with Sperm Donation", icon: "🎁", color: "#5d5758", photo: "articles/ypog-sperm-donor.png" },
+    "egg-freezing":        { label: "Egg Freezing", icon: "❄️", color: "#5d5758", photo: "articles/ypog-egg-freezing.jpg" },
+    "mini-ivf":            { label: "Mini IVF", icon: "🧪", color: "#5d5758", photo: "articles/ypog-ovulation-2.jpg" },
+    "time-lapse":          { label: "Time-Lapse Technology", icon: "🎞️", color: "#5d5758", photo: "articles/ypog-time-lapse.webp" },
+    "assisted-hatching":   { label: "Assisted Hatching", icon: "✨", color: "#5d5758", photo: "articles/ypog-assisted-hatching.webp" },
+    "pgt":                 { label: "Preimplantation Genetic Testing", icon: "🧬", color: "#5d5758", photo: "articles/ypog-pgt-new.jpg" },
+    "new-technologies":    { label: "New Technologies", icon: "⚗️", color: "#5d5758", photo: "articles/ypog-ivf.jpg" },
+    "treatments":          { label: "Infertility Treatments", icon: "⚕️", color: "#5d5758", photo: "articles/ypog-ivf-new.webp" },
 
     // Iatros
     "viografiko":          { label: "Βιογραφικό",          icon: "📄", color: "#5e5859" },

@@ -386,6 +386,7 @@ def shell(path, title, desc, body, extra_ld=None, keywords=None):
     <nav class="nav container" aria-label="Κύρια πλοήγηση">
       <a href="{rel(path, 'index.html')}" class="brand" aria-label="{attr(SITE['full'])} — Αρχική">
         <img src="{rel(path, 'assets/logo.png')}" alt="{attr(SITE['full'])}" class="brand-logo" width="220" height="90" />
+        <span class="brand-specialty">Ειδικός Αναπαραγωγικής Ιατρικής</span>
       </a>
       <button class="nav-toggle" aria-label="Άνοιγμα μενού" aria-expanded="false"><span></span><span></span><span></span></button>
       <ul class="nav-links">
@@ -587,9 +588,8 @@ def render_home():
       <div class="hero-inner container">
         <p class="eyebrow reveal">{esc(SITE['role'])}&nbsp;· Αθήνα &amp; Νέα Σμύρνη</p>
         <h1 class="hero-title reveal">Ρώτας Μιχάλης <em>MD, FACOG, DFM</em></h1>
-        <p class="hero-lead reveal">Ειδικός Εμβρυομητρικής Ιατρικής με δεκαετή διεθνή καριέρα σε
-          πανεπιστημιακά νοσοκομεία των ΗΠΑ και του Ηνωμένου Βασιλείου — για μια εγκυμοσύνη και μια
-          γυναικολογική φροντίδα με ασφάλεια, τεκμηρίωση και ανθρώπινη παρουσία.</p>
+        <p class="hero-lead reveal">Ειδικός Εμβρυομητρικής Ιατρικής με δεκαετή διεθνή καριέρα σε πανεπιστημιακά νοσοκομεία των ΗΠΑ και του Ηνωμένου Βασιλείου,
+          για μια εγκυμοσύνη και μια γυναικολογική φροντίδα με ασφάλεια, τεκμηρίωση και ανθρώπινη παρουσία.</p>
         <div class="hero-actions reveal">
           <a href="tel:+30{SITE['mobile']}" class="btn btn-primary">Κλείστε Ραντεβού</a>
           <a href="#services" class="btn btn-ghost">Οι Υπηρεσίες μας</a>
