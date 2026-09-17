@@ -1195,6 +1195,8 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
 .bio-hero-image img { object-position: 50% 46%; }
 .bio-panel__image img { object-position: center; }
 .bio-panel__image--doctor-wall img { object-position: 78% center; }
+/* Κάθετο πορτρέτο: κρατάμε το πρόσωπο στο κάδρο όταν το cover κόβει ύψος. */
+.bio-panel__image--doctor-portrait img { object-position: center 22%; }
 .bio-hero-card:hover img,
 .bio-panel:hover .bio-panel__image img { transform: scale(1.035); filter: saturate(1.04); }
 .bio-cards {
@@ -2462,4 +2464,103 @@ a.svc:hover .svc-more { color: var(--rose); transform: translateX(4px); }
   }
   .hero-actions { width: 100%; justify-content: center; }
   .home-slide__content .btn { margin-inline: auto; }
+}
+
+/* ==========================================================================
+   Αρχική σελίδα — ενιαίοι τίτλοι (αίτημα ιατρού, Σεπτέμβριος 2026)
+   Όλοι οι τίτλοι της αρχικής με κεφαλαία και στο ίδιο μέγεθος· ο τίτλος του
+   hero σε μία σειρά και αρκετά μικρότερος. Το scope `.home` κρατάει τις
+   εσωτερικές σελίδες όπως ήταν.
+   ========================================================================== */
+.home .hero--photo .hero-title {
+  max-width: none;
+  font-size: clamp(0.85rem, 4.5vw, 2.2rem);
+  line-height: 1.16;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  margin-bottom: 1.1rem;
+}
+
+.home .section-title,
+.home .photo-album__title,
+.home .office-ambience__title,
+.home .home-slide h2,
+.home .cta-title {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 1rem + 1.5vw, 2.15rem);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.home .office-ambience__title { max-width: 22ch; }
+.home .home-slide h2 { max-width: 20ch; }
+
+/* ==========================================================================
+   Δημοσιεύσεις — λίστα με το εξώφυλλο του περιοδικού δίπλα στην παραπομπή,
+   όπως στο παλιό gynaicologos.gr.
+   ========================================================================== */
+.pub-list {
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(0.8rem, 1.6vw, 1.1rem);
+  counter-reset: pub;
+}
+.pub {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: center;
+  padding: clamp(0.9rem, 1.8vw, 1.2rem);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.pub-cover {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--sand);
+  box-shadow: 0 10px 24px rgba(94, 53, 87, 0.14);
+}
+.pub-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+.pub-body { display: block; min-width: 0; }
+.pub-journal {
+  counter-increment: pub;
+  display: block;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rose-ink);
+  margin-bottom: 0.35rem;
+}
+.pub-journal::before {
+  content: counter(pub, decimal-leading-zero) " · ";
+  color: var(--mocha);
+}
+.pub-cite {
+  display: block;
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.62;
+}
+@media (max-width: 560px) {
+  .pub {
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .pub-cite { font-size: 0.9rem; }
 }

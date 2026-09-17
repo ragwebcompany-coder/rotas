@@ -349,12 +349,13 @@ def ld_clinic():
     return json.dumps(data, ensure_ascii=False, separators=(",", ":"))
 
 
-def shell(path, title, desc, body, extra_ld=None, keywords=None):
+def shell(path, title, desc, body, extra_ld=None, keywords=None, body_class=""):
     canon = SITE["domain"] + "/" + path
     ld = f'\n  <script type="application/ld+json">{ld_clinic()}</script>'
     if extra_ld:
         ld += f'\n  <script type="application/ld+json">{extra_ld}</script>'
     kw = f'\n  <meta name="keywords" content="{attr(keywords)}" />' if keywords else ""
+    cls = f' class="{body_class}"' if body_class else ""
     return f"""<!DOCTYPE html>
 <html lang="el">
 <head>
@@ -380,7 +381,7 @@ def shell(path, title, desc, body, extra_ld=None, keywords=None):
   <link rel="apple-touch-icon" href="{rel(path, 'assets/logo.png')}" />
   <link rel="stylesheet" href="{rel(path, 'styles.css')}" />{ld}
 </head>
-<body>
+<body{cls}>
   <a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
   <header class="site-header" id="top">
     <nav class="nav container" aria-label="Κύρια πλοήγηση">
@@ -494,6 +495,7 @@ HOME_CREDS = [
     "εξαιρετικές χειρουργικές δεξιότητές του.",
     "Κάτοχος του ανώτερου βαθμού πιστοποίησης στην Εμβρυομητρική Ιατρική "
     "(Diploma in Fetal Medicine).",
+    "Συνεργάτης της Μονάδας Υποβοηθούμενης Αναπαραγωγής Μαιευτηρίου ΡΕΑ.",
 ]
 
 STEPS = [
@@ -655,7 +657,7 @@ def render_home():
             <button type="button" class="home-slider__tab is-active" aria-label="Πρότυπο κέντρο υπερήχων εγκυμοσύνης"><span>01</span><strong>Υπέρηχοι</strong></button>
             <button type="button" class="home-slider__tab" aria-label="Εξειδίκευση στη λαπαροσκοπική χειρουργική"><span>02</span><strong>Χειρουργική</strong></button>
             <button type="button" class="home-slider__tab" aria-label="Σύγχρονος εξοπλισμός"><span>03</span><strong>Εξοπλισμός</strong></button>
-            <button type="button" class="home-slider__tab" aria-label="Πολυετής εμπειρία στην υποβοηθούμενη αναπαραγωγή"><span>04</span><strong>Αναπαραγωγή</strong></button>
+            <button type="button" class="home-slider__tab" aria-label="Πολυετής εμπειρία στην υποβοηθούμενη αναπαραγωγή"><span>04</span><strong>Εξωσωματική</strong></button>
             <button type="button" class="home-slider__tab" aria-label="Εξειδίκευση στις κυήσεις υψηλού κινδύνου"><span>05</span><strong>Υψηλού κινδύνου</strong></button>
           </div>
           <button type="button" class="home-slider__arrow home-slider__arrow--next" aria-label="Επόμενη προβολή"><span aria-hidden="true">&rsaquo;</span></button>
@@ -922,7 +924,7 @@ def render_home():
             "Ιατρικής. Ιατρεία σε Αθήνα (Βασ. Σοφίας 124Α) και Νέα Σμύρνη. Εγκυμοσύνη, "
             "προγεννητικός έλεγχος, γυναικολογία, λαπαροσκόπηση, υπογονιμότητα.")
     write(cur, shell(cur, "Γυναικολόγος Αθήνα | Ρώτας Μιχάλης MD, FACOG — Μαιευτήρας Γυναικολόγος",
-                     desc, body,
+                     desc, body, body_class="home",
                      keywords="γυναικολόγος Αθήνα, μαιευτήρας Αθήνα, γυναικολόγος Νέα Σμύρνη, "
                               "εμβρυομητρική, αυχενική διαφάνεια, υπερηχογράφημα β επιπέδου, "
                               "λαπαροσκόπηση, υπογονιμότητα, Ρώτας Μιχάλης"))
@@ -1130,7 +1132,75 @@ def creds_block():
             f'<h2>Εκπαίδευση &amp; καριέρα</h2><ul class="ticks">{extra}</ul>')
 
 
+
+# ---------------------------------------------------------------- δημοσιεύσεις
+
+# Οι δημοσιεύσεις όπως παρουσιάζονται στο παλιό gynaicologos.gr/δημοσιεύσεις/:
+# εξώφυλλο του περιοδικού δίπλα στην παραπομπή. (εξώφυλλο, περιοδικό, παραπομπή)
+PUBLICATIONS = [
+    ("obstetrics-gynecology.jpg", "Obstetrics &amp; Gynecology",
+     "The effect of acute sleep deprivation and alcohol consumption on performance "
+     "during simulated laparoscopic surgery. Obstet Gynecol. 2007 April Supplements"),
+    ("obstetrics-gynecology.jpg", "Obstetrics &amp; Gynecology",
+     "Rotas M, McCalla S, Chunhua L, Minkoff H. Methicillin resistant Staphylococcus "
+     "aureus necrotizing pneumonia arising from an infected episiotomy site. "
+     "Obstet Gynecol. 2007; 109:533-6"),
+    ("obstetrics-gynecology.jpg", "Obstetrics &amp; Gynecology",
+     "Ashoor G, Maiz N, Rotas M, Jawdat F, Nicolaides KH. Maternal thyroid function at "
+     "11 to 13 weeks of gestation and spontaneous preterm delivery. Obstet Gynecol. "
+     "2011 Feb; 117(2 Pt 1):293-8"),
+    ("obstetrics-gynecology.jpg", "Obstetrics &amp; Gynecology",
+     "Haberman S, Rotas M, Perlman K, Feldman J. Variations in compliance with "
+     "documentation using computerized obstetrical records. Obstet Gynecol. "
+     "2007 Jul; 110(1):141-5"),
+    ("obstetrics-gynecology.jpg", "Obstetrics &amp; Gynecology",
+     "Rotas M, Haberman S, Levgur M. Cesarean scar ectopic pregnancies: etiology, "
+     "diagnosis, and management. Obstet Gynecol. 2006 Jun; 107(6):1373-81"),
+    ("j-ultrasound-medicine.jpg", "Journal of Ultrasound in Medicine",
+     "Rotas M, Haberman S, Zaher M, Morcos M. Prenatal diagnosis of giant fetal truncal "
+     "hemangioma by means of 2- and 3-dimensional sonography with magnetic resonance "
+     "imaging. J Ultrasound Med. 2006 Apr; 25(4):527-31"),
+    ("fetal-diagnosis-therapy.jpg", "Fetal Diagnosis and Therapy",
+     "Ashoor G, Rotas M, Maiz N, Kametas NA, Nicolaides KH. Maternal thyroid function at "
+     "11-13 weeks of gestation in women with hypothyroidism treated by thyroxine. "
+     "Fetal Diagn Ther. 2010 Jul; 28(1):22-7. Epub 2010 Jul 2"),
+    ("prenatal-diagnosis.jpg", "Prenatal Diagnosis",
+     "Ashoor G, Maiz N, Rotas M, Kametas NA, Nicolaides KH. Maternal thyroid function at "
+     "11-13 weeks of gestation and subsequent development of preeclampsia. Prenat Diagn. "
+     "2010 Nov; 30(11):1032-8"),
+    ("obstetrical-gynecological-survey.jpg", "Obstetrical &amp; Gynecological Survey",
+     "Awonuga AO, Shavell VI, Imudia AN, Rotas M, Diamond MP, Puscheck EE. Pathogenesis "
+     "of benign metastasizing leiomyoma: a review. Obstet Gynecol Surv. "
+     "2010 Mar; 65(3):189-95"),
+    ("archives-gynecology-obstetrics.jpg", "Archives of Gynecology and Obstetrics",
+     "Rotas M, Ossowski R, Lutchman G, Levgur M. Pregnancy complicated with a giant "
+     "splenic cyst: a case report and review of the literature. Arch Gynecol Obstet. "
+     "2007 Apr; 275(4):301-5"),
+]
+
+
+def publications_block(cur):
+    items = "".join(f"""<li class="pub">
+            <span class="pub-cover"><img src="{rel(cur, 'assets/journals/' + img)}" alt="{attr(journal.replace('&amp;', '&'))}" width="260" height="346" loading="lazy" decoding="async" /></span>
+            <span class="pub-body">
+              <span class="pub-journal">{journal}</span>
+              <span class="pub-cite">{cite}</span>
+            </span>
+          </li>""" for img, journal, cite in PUBLICATIONS)
+    return f"""<h2>Επιλεγμένες δημοσιεύσεις σε διεθνείς ιατρικές επιθεωρήσεις (journals)</h2>
+        <ol class="pub-list">
+          {items}
+        </ol>"""
+
+
 INJECT = {"iatros/akadimaikoi-titloi.html": creds_block}
+
+# Σελίδες όπου το κείμενο δεν βγάζει καλή εισαγωγή μόνο του.
+PAGE_LEADS = {
+    "iatros/dimosieuseis.html":
+        "Επιλεγμένες δημοσιεύσεις του Δρ. Μιχάλη Ρώτα σε διεθνείς ιατρικές "
+        "επιθεωρήσεις με κριτές.",
+}
 
 
 def bio_story_block(cur):
@@ -1193,8 +1263,8 @@ def bio_story_block(cur):
           </section>
 
           <section class="bio-panel bio-panel--image-left reveal">
-            <figure class="bio-panel__image bio-panel__image--doctor-wall">
-              <img src="{rel(cur, 'assets/bio/doctor-certificates-wall-portrait.png')}" alt="Ο ιατρός και οι διεθνείς τίτλοι στον χώρο του ιατρείου" width="1024" height="994" loading="lazy" />
+            <figure class="bio-panel__image bio-panel__image--doctor-portrait">
+              <img src="{rel(cur, 'assets/bio/dr-rotas-embryocosmos-portrait.jpg')}" alt="Ο Δρ. Μιχάλης Ρώτας στο ιατρείο Embryocosmos" width="1100" height="1467" loading="lazy" />
             </figure>
             <div class="bio-panel__text">
               <p class="eyebrow">Εμβρυομητρική ιατρική</p>
@@ -1279,6 +1349,10 @@ def render_detail(page):
         body = (body + "\n        " if body else "") + INJECT[page.path]()
         words += 200
 
+    if page.path == "iatros/dimosieuseis.html":
+        body = publications_block(cur)
+        words += 400
+
     if page.path == "iatros/viografiko.html":
         body = bio_story_block(cur)
         words += 650
@@ -1323,7 +1397,7 @@ def render_detail(page):
     trail = trail_of(page)
     crumb_html, crumb_ld = crumbs(cur, trail)
 
-    lead = excerpt(page.src, sec["lead"])
+    lead = PAGE_LEADS.get(page.path) or excerpt(page.src, sec["lead"])
     if len(lead) > 190:
         lead = lead[:187].rsplit(" ", 1)[0] + "…"
     page_body = f"""  <main id="main">

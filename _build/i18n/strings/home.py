@@ -36,6 +36,16 @@ HERO = {
         "with a decade-long international career in university hospitals in the "
         "USA and the United Kingdom — for pregnancy and gynecological care that "
         "is safe, evidence-based and deeply human.",
+    # το τρέχον κείμενο του hero (build.py) — το παλιό κλειδί από πάνω δεν
+    # ταιριάζει πια λέξη προς λέξη.
+    "Ειδικός Εμβρυομητρικής Ιατρικής με δεκαετή διεθνή καριέρα σε "
+    "πανεπιστημιακά νοσοκομεία των ΗΠΑ και του Ηνωμένου Βασιλείου, για μια "
+    "εγκυμοσύνη και μια γυναικολογική φροντίδα με ασφάλεια, τεκμηρίωση και "
+    "ανθρώπινη παρουσία.":
+        "Specialist in Maternal–Fetal Medicine with a decade-long international "
+        "career in university hospitals in the USA and the United Kingdom, "
+        "providing pregnancy and gynecological care that is safe, evidence-based "
+        "and deeply human.",
     "Κλείστε Ραντεβού": "Book an Appointment",
     "Οι Υπηρεσίες μας": "Our Services",
     # the scrolling strip
@@ -260,6 +270,10 @@ CLINICS_AND_PARTNERS = {
         "REA Maternity and Gynecology Clinic",
     "ΙΑΣΩ": "IASO",
     "ΜΗΤΕΡΑ": "MITERA",
+    # αίτημα ιατρού, Σεπτέμβριος 2026
+    "Εξωσωματική": "IVF",
+    "Συνεργάτης της Μονάδας Υποβοηθούμενης Αναπαραγωγής Μαιευτηρίου ΡΕΑ.":
+        "Associate of the Assisted Reproduction Unit at REA Maternity Hospital.",
 }
 
 STRINGS = {}

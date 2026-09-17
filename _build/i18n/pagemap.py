@@ -171,6 +171,9 @@ RETIRED = {
     "en/pregnancy/fathers-guide.html":     "en/pregnancy/pregnancy-topics.html",
     "en/pregnancy/labor-induction.html":   "en/pregnancy/index.html",
     "en/pregnancy/pain-relief.html":       "en/pregnancy/index.html",
+    # Ορφανή σελίδα του παλιού αγγλικού site: ίδιο περιεχόμενο με την
+    # postpartum-and-breastfeeding, χωρίς μενού εικόνων και εκτός πλοήγησης.
+    "en/pregnancy/breastfeeding.html":     "en/pregnancy/postpartum-and-breastfeeding.html",
     "en/pregnancy/postpartum-depression.html": "en/pregnancy/postpartum-and-breastfeeding.html",
     "en/pregnancy/preterm-birth.html":     "en/pregnancy/pregnancy-complications.html",
     "en/pregnancy/travel.html":            "en/pregnancy/pregnancy-topics.html",

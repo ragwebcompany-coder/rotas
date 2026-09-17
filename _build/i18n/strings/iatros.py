@@ -424,6 +424,24 @@ PUBLICATIONS = {
 }
 STRINGS.update(PUBLICATIONS)
 
+# Η σελίδα «Δημοσιεύσεις» ξαναστήθηκε ως λίστα με τα εξώφυλλα των περιοδικών
+# (Σεπτέμβριος 2026) — νέα κείμενα προς μετάφραση.
+PUBLICATIONS_2026 = {
+    "Επιλεγμένες δημοσιεύσεις σε διεθνείς ιατρικές επιθεωρήσεις (journals)":
+        "Selected publications in international medical journals",
+    "Επιλεγμένες δημοσιεύσεις του Δρ. Μιχάλη Ρώτα σε διεθνείς ιατρικές "
+    "επιθεωρήσεις με κριτές.":
+        "Selected publications by Dr. Michael Rotas in international "
+        "peer-reviewed medical journals.",
+}
+STRINGS.update(PUBLICATIONS_2026)
+
+BIO_2026 = {
+    "Ο Δρ. Μιχάλης Ρώτας στο ιατρείο Embryocosmos":
+        "Dr. Michael Rotas at the Embryocosmos clinic",
+}
+STRINGS.update(BIO_2026)
+
 # gallery captions: "Ιατρείο Αθηνών χώρος 7"
 for _n in range(1, 21):
     STRINGS[f"Ιατρείο Αθηνών χώρος {_n}"] = f"Athens Clinic — photo {_n}"

@@ -21,3 +21,13 @@ _manual = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__fil
 if _os.path.exists(_manual):
     with open(_manual, encoding='utf-8') as _fh:
         STRINGS.update(_json.load(_fh))
+
+# Ο generator περνάει κάθε σελίδα από το strip_dashes() (build.py): το " — "
+# γίνεται " ". Τα κλειδιά εδώ κρατούν την παύλα, οπότε κρατάμε και την εκδοχή
+# χωρίς αυτήν, αλλιώς οι ίδιες φράσεις μένουν αμετάφραστες στο /en/.
+import re as _re
+_DASH = _re.compile(r" ([-–—]+) ")
+for _k, _v in list(STRINGS.items()):
+    _flat = _DASH.sub(" ", _k)
+    if _flat != _k:
+        STRINGS.setdefault(_flat, _v)

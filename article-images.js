@@ -5,6 +5,10 @@
 (function () {
   "use strict";
 
+  var self = document.currentScript ||
+             document.querySelector('script[src$="article-images.js"]');
+  var selfDir = self ? self.src.replace(/article-images\.js(\?.*)?$/, "") : "";
+
   var body = document.querySelector(".svc-body");
   if (!body) return; // Not an article page
   if (document.querySelector(".office-collage, .office-showcase, .gallery")) return; // Clinic pages already have real photos
@@ -161,8 +165,12 @@
     "iatreio-neas-smyrnis":{ label: "Ιατρείο Ν. Σμύρνης",  icon: "🏥", color: "#5e5859" }
   };
 
-  // Find the matching config for this page
-  var path = window.location.pathname;
+  // Find the matching config for this page.
+  // Οι αγγλικές σελίδες (/en/...) έχουν δικά τους slugs, οπότε κοιτάμε το
+  // hreflang="el" που δείχνει στην ελληνική αντίστοιχη σελίδα.
+  var alt = document.querySelector('link[rel="alternate"][hreflang="el"]');
+  var path = (alt && alt.getAttribute("href")) || window.location.pathname;
+  var isEnglish = document.documentElement.lang === "en";
   var config = null;
   for (var key in pageImageMap) {
     if (path.indexOf(key) !== -1) {
@@ -184,17 +192,9 @@
     var wrapper = document.createElement("figure");
     wrapper.style.cssText = "margin:2rem 0; text-align:center;";
 
-    // Check if we are in a subfolder to construct the relative path to assets
-    var isSubfolder = window.location.pathname.indexOf('/iatros/') !== -1 ||
-                      window.location.pathname.indexOf('/maieftiki/') !== -1 ||
-                      window.location.pathname.indexOf('/embryomitriki/') !== -1 ||
-                      window.location.pathname.indexOf('/gynaikologia/') !== -1 ||
-                      window.location.pathname.indexOf('/xeirourgeia/') !== -1 ||
-                      window.location.pathname.indexOf('/ypogonimotita/') !== -1;
-    
-    // For GitHub Pages or local testing, sometimes the URL path might be slightly different.
-    // The simplest robust approach for this site structure:
-    var assetPrefix = isSubfolder ? "../assets/" : "assets/";
+    // Το assets/ βρίσκεται δίπλα σε αυτό το ίδιο script — το βάθος της σελίδας
+    // (/gynaikologia/x.html, /en/gynecology/x.html) δεν μας απασχολεί έτσι.
+    var assetPrefix = selfDir + "assets/";
 
     var img = document.createElement("img");
     img.src = assetPrefix + (src || cfg.image);
@@ -206,7 +206,12 @@
 
     var figcaption = document.createElement("figcaption");
     figcaption.style.cssText = "margin-top:0.75rem; font-family:Verdana, sans-serif; font-size:14px; color:#7e7578; font-weight:600;";
-    figcaption.textContent = cfg.label;
+    // Ελληνική λεζάντα σε αγγλική σελίδα δεν στέκει: εκεί παίρνουμε τον τίτλο
+    // της σελίδας, που είναι ήδη μεταφρασμένος.
+    var pageTitle = document.querySelector(".page-title");
+    figcaption.textContent = (isEnglish && pageTitle)
+      ? pageTitle.textContent.trim()
+      : cfg.label;
 
     wrapper.appendChild(img);
     wrapper.appendChild(figcaption);
